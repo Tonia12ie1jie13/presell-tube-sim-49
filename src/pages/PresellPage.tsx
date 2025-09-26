@@ -1,39 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import presellImage from "@/assets/presell-image.avif";
 
 const PresellPage = () => {
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 24,
-    minutes: 59,
-    seconds: 43
-  });
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(prev => {
-        let { hours, minutes, seconds } = prev;
-        
-        if (seconds > 0) {
-          seconds--;
-        } else if (minutes > 0) {
-          minutes--;
-          seconds = 59;
-        } else if (hours > 0) {
-          hours--;
-          minutes = 59;
-          seconds = 59;
-        }
-        
-        return { hours, minutes, seconds };
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleWatchVideo = () => {
     setIsLoading(true);
@@ -44,7 +16,7 @@ const PresellPage = () => {
     }, 1500);
   };
 
-  const formatTime = (num: number) => num.toString().padStart(2, '0');
+  
 
   return (
     <div className="min-h-screen bg-background">
@@ -127,15 +99,6 @@ const PresellPage = () => {
           ▶️ WATCH VIDEO BEFORE IT'S GONE
         </Button>
 
-        {/* Countdown Reminder */}
-        <div className="bg-muted p-4 rounded-lg mt-8 text-sm">
-          <p className="font-semibold">
-            ⏰ <strong>LIVE VIDEO ENDS IN:</strong>{" "}
-            <span className="text-primary font-bold">
-              {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
-            </span>
-          </p>
-        </div>
       </main>
 
       {/* Footer */}
