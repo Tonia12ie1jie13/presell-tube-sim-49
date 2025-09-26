@@ -20,12 +20,6 @@ const PresellPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="flex justify-end items-center p-4 max-w-6xl mx-auto">
-        <a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-          Política de Privacidade
-        </a>
-      </header>
 
       {/* Main Content */}
       <main className="max-w-2xl mx-auto px-5 py-10 text-center">
