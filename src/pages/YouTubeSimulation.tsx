@@ -78,9 +78,6 @@ const YouTubeSimulation = () => {
 
       setComments(prev => [...prev, userCommentObj]);
       setUserComment("");
-
-      // Redirect immediately after user comments
-      window.location.href = '/offer?comment=posted';
     }
   };
 
