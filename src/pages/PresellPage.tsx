@@ -98,7 +98,7 @@ const PresellPage = () => {
       {/* Footer */}
       <footer className="bg-muted mt-20 py-8 text-center text-sm text-muted-foreground">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="mb-4">© 2024 SaúdePro. All Rights Reserved.</div>
+          <div className="mb-4">© 2025 Dropex. All Rights Reserved.</div>
           <div className="flex justify-center gap-6 flex-wrap">
             <a href="/privacy" className="hover:text-foreground">Privacy Policy</a>
             <a href="/terms" className="hover:text-foreground">Terms of Service</a>
