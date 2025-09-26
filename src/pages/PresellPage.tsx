@@ -12,7 +12,7 @@ const PresellPage = () => {
     
     // Track click and redirect after loading
     setTimeout(() => {
-      navigate(`/=${Date.now()}`);
+      navigate(`/video-exclusivo?ref=presell1&t=${Date.now()}`);
     }, 1500);
   };
 
