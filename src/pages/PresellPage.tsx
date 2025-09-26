@@ -12,7 +12,7 @@ const PresellPage = () => {
     
     // Track click and redirect after loading
     setTimeout(() => {
-      navigate(`/assistir-agora?ref=presell1&t=${Date.now()}`);
+      window.location.href = "https://seulink.com";
     }, 1500);
   };
 
