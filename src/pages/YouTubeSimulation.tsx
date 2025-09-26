@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import  from "";
+import youtubeHeader from "@/assets/youtube-header-hd.png";
 
 interface Comment {
   id: string;
