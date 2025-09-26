@@ -186,7 +186,6 @@ const YouTubeSimulation = () => {
         <div ref={chatRef} className="h-52 overflow-y-auto p-2 space-y-2">
           {comments.map((comment) => (
             <div key={comment.id} className={`flex gap-2 text-sm ${comment.isUser ? 'bg-youtube-blue/10 p-2 rounded' : ''}`}>
-              <span className="text-base">{comment.avatar}</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="font-semibold text-youtube-blue">
