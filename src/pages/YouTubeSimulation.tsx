@@ -19,49 +19,27 @@ const YouTubeSimulation = () => {
   const [isTyping, setIsTyping] = useState("");
   const chatRef = useRef<HTMLDivElement>(null);
 
-  const commentDatabase = {
-    positive: [
-      "Wow this actually works! 😮",
-      "My husband tried this and amazing!",
-      "Thank you for sharing this!",
-      "Life changing method! 🙏",
-      "Why didn't I find this earlier?",
-      "This is incredible! 🎉",
-      "Just tried it and wow!",
-      "My doctor never told me this...",
-      "Finally something that works!",
-      "Better than any medication!"
-    ],
-    questions: [
-      "Is this really free?",
-      "How long until I see results?",
-      "Any side effects?",
-      "Works for all ages?",
-      "Where can I learn more?",
-      "Is there scientific proof?",
-      "Can women use this too?",
-      "Is this available worldwide?",
-      "How do I get started?",
-      "What if it doesn't work for me?"
-    ],
-    testimonials: [
-      "62yo and it worked first try!",
-      "After 10 years of problems, fixed in 7 seconds!",
-      "Better than any pill I've tried!",
-      "My wife is amazed! 😂",
-      "Saved my marriage honestly",
-      "Doctors hate this simple trick",
-      "Wish I found this years ago",
-      "From skeptic to believer in minutes!"
-    ]
-  };
+  const commentDatabase = [
+    { user: "James Wilson", message: "I came from Facebook. I hope you can help me. 🤞" },
+    { user: "Michael Brown", message: "Your TikTok videos helped me a lot! 👍👍" },
+    { user: "Christopher Miller", message: "How long until I see results after using it?" },
+    { user: "David Garcia", message: "I'm going to try this recipe today and I'll come back in a few days to tell you the results." },
+    { user: "Matthew Jones", message: "I made it and my wife loved it! ❤️" },
+    { user: "Joshua Taylor", message: "I'm 73 years old, will it work for me too??" },
+    { user: "Andrew Thomas", message: "My energy improved a lot after doing the trick!" },
+    { user: "Daniel White", message: "I wanted to last 3 times in a row, does it really work? 😏" },
+    { user: "Kevin Martin", message: "My friend recommended I watch this video." },
+    { user: "Brian Moore", message: "Finally something that actually works! I'm tired of so many empty promises. 🙌" },
+    { user: "Jonathan Lewis", message: "Anyone else from Australia watching? 🇦🇺" },
+    { user: "Robert Hall", message: "I'm from the UK, are the ingredients available in supermarkets here? Are they easy to find? 🇬🇧" },
+    { user: "Thomas Young", message: "If you have a Walmart near you, you can find it. It's super easy, and where I live the ingredients cost less than 8 dollars. 🛒" },
+    { user: "Scott Wright", message: "I hope it works for me, thank you!!" },
+    { user: "Patrick Green", message: "I used it for 1 week and it helped me so much, thank you! 🎉😏" },
+    { user: "William Harris", message: "So glad I made it in time before the presentation ended." }
+  ];
 
   const userAvatars = ["👤", "👨", "👴", "🧔", "👨‍💼", "👨‍🔬", "👨‍🎓", "👨‍🏫"];
-  const userNames = [
-    "Mike T.", "John D.", "Robert62", "David_Health", "SteveW", "Paul_J", 
-    "MarkScience", "TomReviews", "HealthGuru", "WellnessExpert", "DrMike", 
-    "FitnessFirst", "LifeChanger", "TruthSeeker", "HealthyLiving", "MedStudent"
-  ];
+  let commentIndex = 0;
 
   const getRandomTimestamp = () => {
     const times = ["just now", "2s ago", "5s ago", "10s ago", "15s ago", "20s ago", "30s ago"];
@@ -69,32 +47,23 @@ const YouTubeSimulation = () => {
   };
 
   const postAutoMessage = () => {
-    const messageTypes = Object.keys(commentDatabase) as Array<keyof typeof commentDatabase>;
-    const randomType = messageTypes[Math.floor(Math.random() * messageTypes.length)];
-    const messages = commentDatabase[randomType];
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    const randomUser = Math.floor(Math.random() * userNames.length);
+    if (commentIndex >= commentDatabase.length) return;
+    
+    const comment = commentDatabase[commentIndex];
+    const randomAvatar = userAvatars[Math.floor(Math.random() * userAvatars.length)];
 
     const newComment: Comment = {
       id: Date.now().toString() + Math.random(),
-      user: userNames[randomUser],
-      avatar: userAvatars[randomUser],
-      message: randomMessage,
+      user: comment.user,
+      avatar: randomAvatar,
+      message: comment.message,
       timestamp: getRandomTimestamp(),
     };
 
     setComments(prev => [...prev, newComment]);
+    commentIndex++;
   };
 
-  const simulateTyping = () => {
-    const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
-    setIsTyping(`${randomUser} is typing...`);
-    
-    setTimeout(() => {
-      setIsTyping("");
-      postAutoMessage();
-    }, 2000 + Math.random() * 2000);
-  };
 
   const handleSendComment = () => {
     if (userComment.trim()) {
@@ -110,21 +79,15 @@ const YouTubeSimulation = () => {
       setComments(prev => [...prev, userCommentObj]);
       setUserComment("");
 
-      // Redirect after user comments (conversion tracking)
-      setTimeout(() => {
-        window.location.href = '/offer?comment=posted';
-      }, 2000);
+      // Redirect immediately after user comments
+      window.location.href = '/offer?comment=posted';
     }
   };
 
   useEffect(() => {
     // Start auto messages after 1 second
     const messageInterval = setInterval(() => {
-      if (Math.random() > 0.3) {
-        postAutoMessage();
-      } else {
-        simulateTyping();
-      }
+      postAutoMessage();
     }, 3000 + Math.random() * 2000);
 
     // Update viewer count
@@ -239,12 +202,6 @@ const YouTubeSimulation = () => {
             </div>
           ))}
           
-          {isTyping && (
-            <div className="flex gap-2 text-sm text-gray-400 italic">
-              <span>✏️</span>
-              <div>{isTyping}</div>
-            </div>
-          )}
         </div>
       </div>
 
