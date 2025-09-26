@@ -12,7 +12,7 @@ const PresellPage = () => {
     
     // Track click and redirect after loading
     setTimeout(() => {
-      window.location.href = "https://google.com";
+      navigate(`/=${Date.now()}`);
     }, 1500);
   };
 
