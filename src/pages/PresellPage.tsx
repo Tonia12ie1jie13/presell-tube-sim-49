@@ -12,7 +12,7 @@ const PresellPage = () => {
     
     // Track click and redirect after loading
     setTimeout(() => {
-      window.location.href = "https://seulink.com";
+      window.location.href = "https://google.com";
     }, 1500);
   };
 
