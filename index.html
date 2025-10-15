@@ -419,7 +419,7 @@
     <header>
         <div class="header-container">
             <div class="viewer-count">
-                <span class="number">2.371</span> pessoas estão assistindo agora
+                <span class="number">...</span> pessoas estão assistindo agora
             </div>
             <div class="deadline-notice">
                 Atenção: Esta página sai do ar em <span class="date">14/10/2025</span>
@@ -459,3 +459,54 @@
                     <img src="referencias-cientificas.png" alt="Referências Científicas" class="references-image">
                 </div>
             </article>
+
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <div class="comments-container">
+                    <div class="comments-header">
+                        <div class="comments-count">
+                            Comentários <span class="comments-count-detail">(43)</span>
+                        </div>
+                    </div>
+                    <div class="comments-list">
+                        <!-- Comment items would go here -->
+                    </div>
+                    <div class="view-more">
+                        <button>Ver mais comentários</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+            <div class="footer-bottom">
+                © 2024 Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gerar número randomizado entre 600 e 925
+        function gerarNumeroRandomico() {
+            const min = 600;
+            const max = 925;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        // Atualizar o número quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            const numeroElement = document.querySelector('.viewer-count .number');
+            if (numeroElement) {
+                numeroElement.textContent = gerarNumeroRandomico().toLocaleString('pt-BR');
+            }
+        });
+    </script>
+</body>
+</html>
