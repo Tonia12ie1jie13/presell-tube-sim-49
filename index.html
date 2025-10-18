@@ -142,67 +142,6 @@
             text-align: center;
         }
 
-        /* Botões de Checkout */
-        .checkout-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 30px auto;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .checkout-button {
-            display: block;
-            padding: 18px 20px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .checkout-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-            background: linear-gradient(135deg, #16a34a, #15803d);
-        }
-
-        .checkout-button:active {
-            transform: translateY(0);
-        }
-
-        .checkout-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s;
-        }
-
-        .checkout-button:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .button-text {
-            position: relative;
-            z-index: 1;
-        }
-
         .references-section {
             margin: 32px auto;
             max-width: 500px;
@@ -438,17 +377,6 @@
                         s.src="https://scripts.converteai.net/0a47c81a-4d3a-4428-8a8d-6f6e4ba12a28/players/68f2702deb149b6d6e3da1f4/v4/player.js",
                         s.async=!0,document.head.appendChild(s);
                     </script>
-                    
-                    <!-- BOTÕES DE CHECKOUT - APARECERÃO EM 25:16 (1516 SEGUNDOS) -->
-                    <div class="esconder checkout-buttons">
-                        <a href="https://pay.cakto.com.br/s6m4x7c_568431" class="checkout-button">
-                            <span class="button-text">INGRESSAR VIA PIX</span>
-                        </a>
-                        <a href="https://pay.hotmart.com/W88911564C?off=2lh8t9fs" class="checkout-button">
-                            <span class="button-text">INGRESSAR VIA CARTÃO DE CRÉDITO</span>
-                        </a>
-                    </div>
-                    
                     <p class="video-warning">
                         🔊 Por favor, verifique se o som está ligado.
                     </p>
@@ -868,24 +796,6 @@
     <!-- TikTok ViewContent Event -->
     <script>
         ttq.track('ViewContent');
-    </script>
-
-    <!-- CÓDIGO DE DELAY PARA SINCRONIZAR OS BOTÕES COM O VÍDEO -->
-    <style>
-      .esconder {
-        display: none;
-      }
-    </style>
-
-    <script>
-      // 25:16 = 25 minutos * 60 + 16 segundos = 1516 segundos
-      var delaySeconds = 1516;
-      var player = document.querySelector("vturb-smartplayer");
-      player.addEventListener("player:ready", function() {
-        player.displayHiddenElements(delaySeconds, [".esconder"], {
-          persist: true
-        });
-      });
     </script>
 </body>
 </html>
