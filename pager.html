@@ -35,26 +35,26 @@
         body {
             background-color: #f5f5f5;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.4;
         }
         
         .header {
             background-color: #ff0000;
             color: white;
             text-align: center;
-            padding: 20px 10px;
+            padding: 12px 10px;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .viewer-count {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 18px;
+            margin-bottom: 6px;
         }
         
         .presentation-info {
-            font-size: 18px;
-            margin-top: 10px;
+            font-size: 14px;
+            margin-top: 6px;
         }
         
         .date-highlight {
@@ -65,39 +65,54 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         
         .video-container {
-            margin: 30px 0;
+            margin: 20px 0;
             text-align: center;
         }
         
         .audio-notice {
             background-color: #fff8e1;
             border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 12px;
+            margin: 15px 0;
             border-radius: 4px;
             text-align: center;
             font-weight: bold;
+            font-size: 14px;
         }
         
         @media (max-width: 600px) {
             .header {
-                padding: 15px 8px;
+                padding: 10px 8px;
             }
             
             .viewer-count {
-                font-size: 20px;
+                font-size: 16px;
             }
             
             .presentation-info {
-                font-size: 16px;
+                font-size: 13px;
             }
             
             .container {
                 padding: 10px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .header {
+                padding: 8px 6px;
+            }
+            
+            .viewer-count {
+                font-size: 15px;
+            }
+            
+            .presentation-info {
+                font-size: 12px;
             }
         }
     </style>
@@ -140,8 +155,16 @@
         
         // Atualizar elementos com os valores gerados
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('viewer-count').textContent = getRandomViewerCount();
-            document.getElementById('current-date').textContent = getCurrentDate();
+            const viewerCountElement = document.getElementById('viewer-count');
+            const currentDateElement = document.getElementById('current-date');
+            
+            if (viewerCountElement) {
+                viewerCountElement.textContent = getRandomViewerCount();
+            }
+            
+            if (currentDateElement) {
+                currentDateElement.textContent = getCurrentDate();
+            }
         });
         
         // Carregar script do player do vturb
