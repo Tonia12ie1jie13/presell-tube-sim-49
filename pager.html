@@ -42,25 +42,30 @@
             background-color: #ff0000;
             color: white;
             text-align: center;
-            padding: 15px 10px;
+            padding: 20px 10px;
             font-weight: bold;
-            font-size: 18px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .viewer-count {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .presentation-info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        
+        .date-highlight {
+            color: #ffcc00;
+            font-weight: bold;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-        }
-        
-        .info-box {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
         }
         
         .video-container {
@@ -78,16 +83,17 @@
             font-weight: bold;
         }
         
-        .date-highlight {
-            color: #d32f2f;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
         @media (max-width: 600px) {
             .header {
+                padding: 15px 8px;
+            }
+            
+            .viewer-count {
+                font-size: 20px;
+            }
+            
+            .presentation-info {
                 font-size: 16px;
-                padding: 12px 8px;
             }
             
             .container {
@@ -98,15 +104,16 @@
 </head>
 <body>
     <div class="header">
-        <span id="viewer-count">XXX</span> Pessoas estão assistindo a esse vídeo
-    </div>
-    
-    <div class="container">
-        <div class="info-box">
+        <div class="viewer-count">
+            <span id="viewer-count">XXX</span> Pessoas estão assistindo a esse vídeo
+        </div>
+        <div class="presentation-info">
             Devido a alta demanda de acessos, garantimos a apresentação somente até: 
             <span id="current-date" class="date-highlight">xx/xx/xxxx</span>
         </div>
-        
+    </div>
+    
+    <div class="container">
         <div class="video-container">
             <vturb-smartplayer id="vid-690c941febc6d4000fef8d33" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
         </div>
