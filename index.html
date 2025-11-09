@@ -377,7 +377,27 @@
                         var s=document.createElement("script");
                         s.src="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/690c941febc6d4000fef8d33/v4/player.js",
                         s.async=!0,document.head.appendChild(s);
-                    </script>
+                    </script> 
+                    <style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var delaySeconds = 10;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
+                      
+                <div class="esconder">
+OLA TESTANDO
+</div>
+                    
                     <p class="video-warning">
                         🔊 Por favor, verifique se o som está ligado.
                     </p>
