@@ -14,7 +14,22 @@
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
-    
+   
+    <style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var delaySeconds = 10;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
     
     <!-- Meta Pixel Code -->
     <script>
