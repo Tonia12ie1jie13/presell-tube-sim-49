@@ -15,23 +15,6 @@
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
     
-<script>
-    // CONFIGURAÇÃO DO DELAY - 20 segundos para teste
-    var delaySeconds = 20; 
-    
-    // Aguarda o player VTurb ficar pronto
-    var player = document.querySelector("vturb-smartplayer");
-    
-    if (player) {
-        player.addEventListener("player:ready", function() {
-            player.displayHiddenElements(delaySeconds, [".esconder"], {
-                persist: true
-            });
-        });
-    } else {
-        console.log("Player VTurb não encontrado");
-    }
-</script>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -808,12 +791,23 @@
         setInterval(function() {
             document.getElementById('viewerCount').textContent = getRandomViewers();
         }, Math.random() * 5000 + 5000);
-    </script>
-
-    <!-- TikTok ViewContent Event -->
     <script>
-        ttq.track('ViewContent');
-    </script>
+    // CONFIGURAÇÃO DO DELAY - 20 segundos para teste
+    var delaySeconds = 20; 
+    
+    // Aguarda o player VTurb ficar pronto
+    var player = document.querySelector("vturb-smartplayer");
+    
+    if (player) {
+        player.addEventListener("player:ready", function() {
+            player.displayHiddenElements(delaySeconds, [".esconder"], {
+                persist: true
+            });
+        });
+    } else {
+        console.log("Player VTurb não encontrado");
+    }
+</script>
 </body>
 </html>
 <!-- Meta Pixel Code -->
@@ -892,3 +886,4 @@ src="https://www.facebook.com/tr?id=1369310158038237&ev=PageView&noscript=1"
         font-size: 16px;
     }
 }
+
