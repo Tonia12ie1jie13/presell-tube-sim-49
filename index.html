@@ -14,22 +14,19 @@
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
-   
-    <style>
-  .esconder {
-    display: none;
-  }
-</style>
+    
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-<script>
-  var delaySeconds = 10;
-  var player = document.querySelector("vturb-smartplayer");
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
-  });
-</script>
+      ttq.load('D2DCDNRC77U89NHROEAG');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
     
     <!-- Meta Pixel Code -->
     <script>
@@ -384,17 +381,6 @@
                     <p class="video-warning">
                         🔊 Por favor, verifique se o som está ligado.
                     </p>
-                    <!-- BOTÕES DE COMPRA -->
-<div class="esconder">
-    <div class="botoes-container">
-        <a href="https://pay.cakto.com.br/s6m4x7c_568431" class="botao-pix">
-            SIM, QUERO INGRESSAR VIA PIX
-        </a>
-        <a href="https://pay.cakto.com.br/s6m4x7c_568431" class="botao-cartao">
-            SIM, QUERO INGRESSAR VIA CARTÃO
-        </a>
-    </div>
-</div>
                 </div>
 
                 <div class="references-section">
@@ -806,23 +792,12 @@
         setInterval(function() {
             document.getElementById('viewerCount').textContent = getRandomViewers();
         }, Math.random() * 5000 + 5000);
+    </script>
+
+    <!-- TikTok ViewContent Event -->
     <script>
-    // CONFIGURAÇÃO DO DELAY - 20 segundos para teste
-    var delaySeconds = 20; 
-    
-    // Aguarda o player VTurb ficar pronto
-    var player = document.querySelector("vturb-smartplayer");
-    
-    if (player) {
-        player.addEventListener("player:ready", function() {
-            player.displayHiddenElements(delaySeconds, [".esconder"], {
-                persist: true
-            });
-        });
-    } else {
-        console.log("Player VTurb não encontrado");
-    }
-</script>
+        ttq.track('ViewContent');
+    </script>
 </body>
 </html>
 <!-- Meta Pixel Code -->
@@ -842,5 +817,3 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1369310158038237&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
-
