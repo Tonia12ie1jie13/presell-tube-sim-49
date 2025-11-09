@@ -15,18 +15,23 @@
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
     
-    <!-- TikTok Pixel Code Start -->
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-      ttq.load('D2DCDNRC77U89NHROEAG');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
+<script>
+    // CONFIGURAÇÃO DO DELAY - 20 segundos para teste
+    var delaySeconds = 20; 
+    
+    // Aguarda o player VTurb ficar pronto
+    var player = document.querySelector("vturb-smartplayer");
+    
+    if (player) {
+        player.addEventListener("player:ready", function() {
+            player.displayHiddenElements(delaySeconds, [".esconder"], {
+                persist: true
+            });
+        });
+    } else {
+        console.log("Player VTurb não encontrado");
+    }
+</script>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -381,6 +386,17 @@
                     <p class="video-warning">
                         🔊 Por favor, verifique se o som está ligado.
                     </p>
+                    <!-- BOTÕES DE COMPRA -->
+<div class="esconder">
+    <div class="botoes-container">
+        <a href="https://pay.cakto.com.br/s6m4x7c_568431" class="botao-pix">
+            SIM, QUERO INGRESSAR VIA PIX
+        </a>
+        <a href="https://pay.cakto.com.br/s6m4x7c_568431" class="botao-cartao">
+            SIM, QUERO INGRESSAR VIA CARTÃO
+        </a>
+    </div>
+</div>
                 </div>
 
                 <div class="references-section">
@@ -817,3 +833,62 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1369310158038237&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+.esconder {
+    display: none;
+}
+
+.botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 400px;
+}
+
+.botao-pix, .botao-cartao {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-pix {
+    background-color: #32bb6f;
+    color: white;
+}
+
+.botao-pix:hover {
+    background-color: #28a45a;
+    transform: translateY(-2px);
+}
+
+.botao-cartao {
+    background-color: #007bff;
+    color: white;
+}
+
+.botao-cartao:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Para mobile */
+@media (max-width: 480px) {
+    .botoes-container {
+        margin: 20px auto;
+        gap: 12px;
+    }
+    
+    .botao-pix, .botao-cartao {
+        padding: 18px;
+        font-size: 16px;
+    }
+}
