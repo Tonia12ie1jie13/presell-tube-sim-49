@@ -343,50 +343,6 @@
             color: #999;
         }
 
-        /* ESTILOS DOS BOTÕES DE CHECKOUT */
-        .botoes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 500px;
-            width: 100%;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .botao-pix,
-        .botao-cartao {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            padding: 20px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
-            transition: all 0.3s ease;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
-        }
-
-        .botao-pix:hover,
-        .botao-cartao:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
-            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
-        }
-
-        .botao-pix:active,
-        .botao-cartao:active {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
-        }
-
         @media (max-width: 768px) {
             .viewer-count {
                 font-size: 14px;
@@ -394,12 +350,6 @@
 
             .deadline-notice {
                 font-size: 13px;
-            }
-
-            .botao-pix,
-            .botao-cartao {
-                font-size: 18px;
-                padding: 18px 25px;
             }
         }
     </style>
@@ -427,35 +377,7 @@
                         var s=document.createElement("script");
                         s.src="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/690c941febc6d4000fef8d33/v4/player.js",
                         s.async=!0,document.head.appendChild(s);
-                    </script> 
-                    <style>
-  .esconder {
-    display: none;
-  }
-</style>
-
-<script>
-  var delaySeconds = 2025;
-  var player = document.querySelector("vturb-smartplayer");
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
-  });
-</script>
-                      
-                <div class="esconder">
-                    <!-- BOTÕES DE COMPRA -->
-                    <div class="botoes-container">
-                        <a href="https://pay.kirvano.com/49aeb21a-73a9-4357-a9b1-0eb100b51db5" class="botao-pix">
-                            SIM, QUERO INGRESSAR VIA PIX
-                        </a>
-                        <a href="https://pay.hotmart.com/N91710790M?off=y4hhtohg&checkoutMode=10" class="botao-cartao">
-                            SIM, QUERO INGRESSAR VIA CARTÃO
-                        </a>
-                    </div>
-                </div>
-                    
+                    </script>
                     <p class="video-warning">
                         🔊 Por favor, verifique se o som está ligado.
                     </p>
