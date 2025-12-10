@@ -4,6 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Neutro Google Ads</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17747766637"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17747766637');
+  </script>
+
+  <!-- Event snippet for Compra conversion page -->
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17747766637/0VtuCPPb8cMbEO3a5Y5C',
+      'value': 147,
+      'currency': 'BRL',
+      'transaction_id': ''
+    });
+  </script>
+
   <style>
     :root {
       --background: hsl(0 0% 0%);
@@ -26,6 +46,7 @@
       --glow-gold: 0 0 30px hsl(45 80% 65% / 0.3);
       --radius: 1rem;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -50,14 +71,17 @@
     .border-destructive\/20 { border-color: hsla(0, 70%, 50%, 0.2); }
 
     .rounded-2xl { border-radius: 1rem; }
+    .rounded-xl { border-radius: 0.75rem; }
     .rounded-full { border-radius: 9999px; }
 
+    .p-4 { padding: 1rem; }
     .p-6 { padding: 1.5rem; }
     .p-8 { padding: 2rem; }
     .p-12 { padding: 3rem; }
     .px-4 { padding-left: 1rem; padding-right: 1rem; }
     .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
 
     .space-y-2 > * + * { margin-top: 0.5rem; }
     .space-y-3 > * + * { margin-top: 0.75rem; }
@@ -111,6 +135,8 @@
     .h-14 { height: 3.5rem; }
     .h-24 { height: 6rem; }
 
+    .border-2 { border-width: 2px; }
+
     .transition-all { transition: all 150ms ease; }
     .duration-100 { transition-duration: 100ms; }
     .duration-500 { transition-duration: 500ms; }
@@ -119,10 +145,16 @@
     .animate-fade-in { animation: fade-in 0.3s ease-out; }
     .animate-spin { animation: spin 1s linear infinite; }
 
-    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-    /* ✅ faltava isso */
+    /* ✅ ADICIONADO: faltava h-full e overflow-hidden */
     .h-full { height: 100%; }
     .overflow-hidden { overflow: hidden; }
 
@@ -317,7 +349,7 @@
               style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
           </div>
 
-          <!-- ✅ UPSELL PAYT (HTML já existe desde o início, só fica escondido) -->
+          <!-- ✅ UPSELL PAYT (escondido; aparece só depois de 07:50) -->
           <div id="upsellOffer" style="display:none; margin-top: 18px; text-align:center;">
             <a
               href="#"
@@ -455,8 +487,6 @@
 
         updateHeader(3, 100);
         loadVturbScript();
-
-        // conta 07:50 a partir do momento em que a fase do vídeo aparece
         scheduleUpsell();
       }
 
@@ -478,7 +508,7 @@
     })();
   </script>
 
-  <!-- ✅ PAYT: do jeito do manual (preferencialmente antes do </body>) -->
+  <!-- ✅ PAYT (do jeito do manual, antes do </body>) -->
   <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/4EDDME.js"></script>
 </body>
 </html>
