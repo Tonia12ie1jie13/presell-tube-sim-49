@@ -29,11 +29,14 @@
       --background: hsl(0 0% 0%);
       --foreground: hsl(45 40% 90%);
       --card: hsl(0 0% 5%);
+      --card-foreground: hsl(45 40% 90%);
       --primary: hsl(45 65% 55%);
       --primary-foreground: hsl(0 0% 0%);
       --secondary: hsl(0 0% 12%);
+      --secondary-foreground: hsl(45 40% 90%);
       --muted: hsl(0 0% 15%);
       --muted-foreground: hsl(45 20% 60%);
+      --accent: hsl(45 80% 65%);
       --destructive: hsl(0 70% 50%);
       --border: hsl(0 0% 20%);
       --ring: hsl(45 65% 55%);
@@ -42,6 +45,11 @@
       --shadow-gold: 0 10px 40px -10px hsl(45 65% 55% / 0.4);
       --glow-gold: 0 0 30px hsl(45 80% 65% / 0.3);
       --radius: 1rem;
+
+      /* ✅ MUDE AQUI O TEMPO:
+         teste: 20s
+         produção: 470s (7:50) */
+      --upsell-delay: 20s;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,10 +59,15 @@
       color: var(--foreground);
       min-height: 100vh;
     }
+    img { max-width: 100%; height: auto; }
 
     .min-h-screen { min-height: 100vh; }
     .bg-gradient-dark { background: var(--gradient-dark); }
     .container { max-width: 672px; margin: 0 auto; padding: 2rem 1rem; }
+    @media (min-width: 640px) {
+      .container { padding-top: 3rem; padding-bottom: 3rem; }
+    }
+
     .bg-background { background: var(--background); }
     .bg-card { background: var(--card); }
     .bg-secondary { background: var(--secondary); }
@@ -65,14 +78,17 @@
     .border-destructive\/20 { border-color: hsla(0, 70%, 50%, 0.2); }
 
     .rounded-2xl { border-radius: 1rem; }
+    .rounded-xl { border-radius: 0.75rem; }
     .rounded-full { border-radius: 9999px; }
 
+    .p-4 { padding: 1rem; }
     .p-6 { padding: 1.5rem; }
     .p-8 { padding: 2rem; }
     .p-12 { padding: 3rem; }
     .px-4 { padding-left: 1rem; padding-right: 1rem; }
     .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
 
     .space-y-2 > * + * { margin-top: 0.5rem; }
     .space-y-3 > * + * { margin-top: 0.75rem; }
@@ -120,6 +136,8 @@
     .h-10 { height: 2.5rem; }
     .h-12 { height: 3rem; }
     .h-14 { height: 3.5rem; }
+    .w-24 { width: 6rem; }
+    .h-24 { height: 6rem; }
 
     .transition-all { transition: all 150ms ease; }
     .duration-100 { transition-duration: 100ms; }
@@ -132,6 +150,7 @@
     @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+    /* ✅ faltava isso */
     .h-full { height: 100%; }
     .overflow-hidden { overflow: hidden; }
 
@@ -163,10 +182,19 @@
     }
     .choice-button:hover { border-color: hsla(45, 65%, 55%, 0.5); }
     .choice-button.selected { border-color: var(--primary); background: hsla(45, 65%, 55%, 0.1); }
+    .choice-button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
     button[type="submit"] { border: none; color: var(--primary-foreground); border-radius: var(--radius); cursor: pointer; }
     .btn-submit { background: var(--gradient-primary); height: 3rem; font-size: 1rem; font-weight: 700; }
+    @media (min-width: 640px) {
+      .btn-submit { height: 3.5rem; font-size: 1.125rem; }
+      .p-6 { padding: 2rem; }
+      .p-8 { padding: 2.5rem; }
+      .p-12 { padding: 3rem; }
+      .text-3xl { font-size: 2rem; }
+    }
 
+    /* Toast */
     .toast {
       position: fixed;
       right: 1.5rem;
@@ -186,6 +214,26 @@
     }
     .toast-title { font-weight: 700; }
     .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ✅ UPSSELL PAYT COM DELAY POR CSS (SEM JS) */
+    #payt-upsell {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      visibility: hidden;
+      margin-top: 0;
+      animation: paytShow 0s linear var(--upsell-delay) forwards;
+    }
+    @keyframes paytShow {
+      to {
+        opacity: 1;
+        max-height: 500px;
+        pointer-events: auto;
+        visibility: visible;
+        margin-top: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -199,16 +247,21 @@
         </p>
       </div>
 
-      <div class="px-4 py-4" style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div class="px-4 py-4" style="display: flex; flex-direction: column; gap: 0.75rem;">
         <div class="flex items-center justify-between">
           <span class="text-sm font-semibold text-foreground" id="headerStep">Passo 2 de 3</span>
           <span class="text-sm font-bold text-primary" id="headerProgress">65%</span>
         </div>
 
         <div class="w-full h-2 bg-secondary rounded-full overflow-hidden">
-          <div id="headerProgressBar"
-               class="h-full bg-gradient-primary transition-all duration-500 ease-out shadow-glow"
-               style="width: 65%;"></div>
+          <div id="headerProgressBar" class="h-full bg-gradient-primary transition-all duration-500 ease-out shadow-glow" style="width: 65%;"></div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <img src="lorde-erect-logo.png" alt="Lorde das Ereções" class="h-8 sm:h-10 w-auto" />
+          <p class="text-sm sm:text-base text-foreground font-medium">
+            Bem Vindo ao App <span class="text-primary font-bold">Lorde das Ereções</span>
+          </p>
         </div>
       </div>
     </header>
@@ -238,12 +291,12 @@
               <div class="space-y-3">
                 <label class="text-base sm:text-lg font-semibold text-foreground">Em quanto tempo você gostaria de ver os resultados?</label>
                 <div class="space-y-3">
-                  <button type="button" data-value="fast" class="choice-button">
+                  <button type="button" data-value="fast" class="choice-button" id="option-fast">
                     <span class="font-medium">Mais rápido possível</span>
                     <p class="text-sm text-muted-foreground mt-1">Quero ter resultado hoje se possível</p>
                   </button>
 
-                  <button type="button" data-value="normal" class="choice-button">
+                  <button type="button" data-value="normal" class="choice-button" id="option-normal">
                     <span class="font-medium">Aguento esperar</span>
                     <p class="text-sm text-muted-foreground mt-1">De 15 a 25 dias para ter os primeiros resultados</p>
                   </button>
@@ -251,8 +304,7 @@
               </div>
             </div>
 
-            <button type="submit"
-              class="w-full mt-8 h-12 sm:h-14 text-base sm:text-lg font-bold bg-gradient-primary transition-all shadow-gold shadow-glow btn-submit">
+            <button type="submit" class="w-full mt-8 h-12 sm:h-14 text-base sm:text-lg font-bold bg-gradient-primary hover:opacity-90 transition-all shadow-gold hover:shadow-glow btn-submit">
               Continuar
             </button>
           </div>
@@ -264,8 +316,20 @@
         </form>
       </section>
 
-      <section id="phase-loading" class="space-y-8 animate-fade-in" style="display:none;">
+      <section id="phase-loading" class="space-y-8 animate-fade-in" style="display: none;">
         <div class="bg-card rounded-2xl p-8 sm:p-12 border border-border shadow-gold">
+          <div class="flex justify-center mb-8">
+            <div class="relative">
+              <div class="w-24 h-24 rounded-full border-4 animate-spin" style="border-color: hsla(45,65%,55%,0.3); border-top-color: var(--primary);"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
           <div class="space-y-4 mb-8 text-center">
             <h2 class="text-2xl sm:text-3xl font-bold text-primary">Processando suas informações...</h2>
             <div class="space-y-3 text-center text-muted-foreground">
@@ -277,36 +341,40 @@
 
           <div class="space-y-2">
             <div class="w-full bg-secondary rounded-full h-3 overflow-hidden">
-              <div id="loadingProgressBar"
-                   class="h-full bg-gradient-primary transition-all duration-100 ease-out"
-                   style="width: 0%; border-radius: 9999px;"></div>
+              <div id="loadingProgressBar" class="h-full bg-gradient-primary transition-all duration-100 ease-out" style="width: 0%; border-radius: 9999px;"></div>
             </div>
             <p id="loadingLabel" class="text-center text-sm text-muted-foreground">0% - Quase lá...</p>
           </div>
         </div>
+
+        <div class="text-center">
+          <p class="text-muted-foreground text-sm">🔒 Suas informações estão sendo processadas de forma segura</p>
+        </div>
       </section>
 
-      <section id="phase-video" class="space-y-8 animate-fade-in" style="display:none;">
+      <section id="phase-video" class="space-y-8 animate-fade-in" style="display: none;">
         <div class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-gold">
           <h2 class="text-xl sm:text-2xl font-bold text-center mb-6 text-primary">Assista o vídeo completo</h2>
 
           <div class="w-full">
-            <vturb-smartplayer id="vid-69320101c5a3364c781273c2"
-              style="display:block; margin:0 auto; width:100%; max-width:400px;"></vturb-smartplayer>
+            <vturb-smartplayer id="vid-69320101c5a3364c781273c2" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
           </div>
 
-          <!-- UPSELL PAYT (vai aparecer sozinho quando liberar) -->
-          <div id="upsellOffer" style="display:none; margin-top:18px; text-align:center;">
-            <a
-              href="#"
-              payt_action="oneclick_buy"
-              data-object="LYJ5BL-47W9WP"
-              style="background: rgb(40,167,69); color:#fff; padding:12px 16px; text-decoration:none; font-size:24px; font-family:sans-serif; border-radius:7px; display:inline-block; margin:10px auto;"
-            >
-              SIM, ACEITO ESSA OFERTA!
+          <!-- ✅ PAYT UPSSELL (EXATAMENTE COMO VOCÊ MANDOU) + DELAY VIA CSS -->
+          <div id="payt-upsell" style="text-align: center;">
+            <a href="#"
+               payt_action="oneclick_buy"
+               data-object="LYJ5BL-47W9WP"
+               style="background: rgb(40, 167, 69); color: rgb(255, 255, 255); padding: 7px; text-decoration: none; font-size: 24px; font-family: sans-serif; border-radius: 7px; display: block; margin: 10px auto; width: max-content;">
+               SIM, ACEITO ESSA OFERTA!
             </a>
-            <select payt_element="installment" data-object="LYJ5BL-47W9WP" style="display:none;"></select>
+
+            <select payt_element="installment" style="display: none" data-object="LYJ5BL-47W9WP"></select>
+
+            <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/4EDDME.js"></script>
           </div>
+          <!-- ✅ FIM PAYT -->
+
         </div>
 
         <div class="text-center">
@@ -322,7 +390,7 @@
   </div>
 
   <script>
-    (function () {
+    (function() {
       const phaseQuiz = document.getElementById('phase-quiz');
       const phaseLoading = document.getElementById('phase-loading');
       const phaseVideo = document.getElementById('phase-video');
@@ -341,49 +409,8 @@
       const check50 = document.getElementById('check-50');
       const check80 = document.getElementById('check-80');
 
-      const upsellOffer = document.getElementById('upsellOffer');
-
       let selectedTime = '';
       let loadingInterval = null;
-
-      // ✅ timer do upsell começa IMEDIATAMENTE no load (independente de etapa)
-      const UPSELL_DELAY_MS = 60 * 1000; // 07:50
-      const UPSELL_KEY = "upsell_unlock_at_ms";
-
-      function getUpsellUnlockAt() {
-        const raw = sessionStorage.getItem(UPSELL_KEY);
-        const num = Number(raw);
-        if (!raw || Number.isNaN(num) || num <= 0) {
-          const unlockAt = Date.now() + UPSELL_DELAY_MS;
-          sessionStorage.setItem(UPSELL_KEY, String(unlockAt));
-          return unlockAt;
-        }
-        return num;
-      }
-
-      function revealUpsell() {
-        if (!upsellOffer) return;
-        upsellOffer.style.display = 'block';
-        upsellOffer.style.visibility = 'visible';
-        upsellOffer.style.opacity = '1';
-      }
-
-      function startUpsellGateNow() {
-        const unlockAt = getUpsellUnlockAt();
-
-        const tick = () => {
-          if (Date.now() >= unlockAt) {
-            revealUpsell();
-            clearInterval(intervalId);
-          }
-        };
-
-        // roda já e depois checa de 500ms em 500ms (mais robusto que 1 setTimeout longo)
-        tick();
-        const intervalId = setInterval(tick, 500);
-      }
-
-      startUpsellGateNow();
 
       choiceButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -452,14 +479,9 @@
         phaseLoading.style.display = 'none';
         phaseQuiz.style.display = 'none';
         phaseVideo.style.display = 'block';
-
         updateHeader(3, 100);
         loadVturbScript();
-
-        // ✅ se já liberou enquanto tava em outra etapa, mostra na hora
-        if (Date.now() >= getUpsellUnlockAt()) {
-          revealUpsell();
-        }
+        // ✅ upsell aparece por CSS sozinho (sem JS)
       }
 
       quizForm.addEventListener('submit', (event) => {
@@ -479,8 +501,5 @@
       updateHeader(2, 65);
     })();
   </script>
-
-  <!-- PAYT (do jeito do manual, antes do </body>) -->
-  <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/4EDDME.js"></script>
 </body>
 </html>
