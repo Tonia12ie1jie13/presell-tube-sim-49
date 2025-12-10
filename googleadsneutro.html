@@ -26,7 +26,6 @@
       --glow-gold: 0 0 30px hsl(45 80% 65% / 0.3);
       --radius: 1rem;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -39,9 +38,7 @@
     .min-h-screen { min-height: 100vh; }
     .bg-gradient-dark { background: var(--gradient-dark); }
     .container { max-width: 672px; margin: 0 auto; padding: 2rem 1rem; }
-    @media (min-width: 640px) {
-      .container { padding-top: 3rem; padding-bottom: 3rem; }
-    }
+    @media (min-width: 640px) { .container { padding-top: 3rem; padding-bottom: 3rem; } }
 
     .bg-background { background: var(--background); }
     .bg-card { background: var(--card); }
@@ -53,17 +50,14 @@
     .border-destructive\/20 { border-color: hsla(0, 70%, 50%, 0.2); }
 
     .rounded-2xl { border-radius: 1rem; }
-    .rounded-xl { border-radius: 0.75rem; }
     .rounded-full { border-radius: 9999px; }
 
-    .p-4 { padding: 1rem; }
     .p-6 { padding: 1.5rem; }
     .p-8 { padding: 2rem; }
     .p-12 { padding: 3rem; }
     .px-4 { padding-left: 1rem; padding-right: 1rem; }
     .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
 
     .space-y-2 > * + * { margin-top: 0.5rem; }
     .space-y-3 > * + * { margin-top: 0.75rem; }
@@ -117,8 +111,6 @@
     .h-14 { height: 3.5rem; }
     .h-24 { height: 6rem; }
 
-    .border-2 { border-width: 2px; }
-
     .transition-all { transition: all 150ms ease; }
     .duration-100 { transition-duration: 100ms; }
     .duration-500 { transition-duration: 500ms; }
@@ -127,16 +119,10 @@
     .animate-fade-in { animation: fade-in 0.3s ease-out; }
     .animate-spin { animation: spin 1s linear infinite; }
 
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    /* ✅ ADICIONADO: faltava h-full e overflow-hidden */
+    /* ✅ faltava isso */
     .h-full { height: 100%; }
     .overflow-hidden { overflow: hidden; }
 
@@ -178,25 +164,6 @@
     }
     .btn-submit { background: var(--gradient-primary); height: 3rem; font-size: 1rem; font-weight: 700; }
 
-    @media (min-width: 640px) {
-      .text-xs { font-size: 0.8125rem; }
-      .text-sm { font-size: 0.9375rem; }
-      .text-base { font-size: 1rem; }
-      .text-lg { font-size: 1.125rem; }
-      .text-xl { font-size: 1.25rem; }
-      .text-2xl { font-size: 1.625rem; }
-      .text-3xl { font-size: 2rem; }
-      .h-8 { height: 2.5rem; }
-      .h-10 { height: 2.75rem; }
-      .h-12 { height: 3rem; }
-      .h-14 { height: 3.5rem; }
-      .btn-submit { height: 3.5rem; font-size: 1.125rem; }
-      .p-6 { padding: 2rem; }
-      .p-8 { padding: 2.5rem; }
-      .p-12 { padding: 3rem; }
-    }
-
-    /* Toast */
     .toast {
       position: fixed;
       right: 1.5rem;
@@ -275,12 +242,12 @@
               <div class="space-y-3">
                 <label class="text-base sm:text-lg font-semibold text-foreground">Em quanto tempo você gostaria de ver os resultados?</label>
                 <div class="space-y-3">
-                  <button type="button" data-value="fast" class="choice-button" id="option-fast">
+                  <button type="button" data-value="fast" class="choice-button">
                     <span class="font-medium">Mais rápido possível</span>
                     <p class="text-sm text-muted-foreground mt-1">Quero ter resultado hoje se possível</p>
                   </button>
 
-                  <button type="button" data-value="normal" class="choice-button" id="option-normal">
+                  <button type="button" data-value="normal" class="choice-button">
                     <span class="font-medium">Aguento esperar</span>
                     <p class="text-sm text-muted-foreground mt-1">De 15 a 25 dias para ter os primeiros resultados</p>
                   </button>
@@ -344,10 +311,26 @@
       <section id="phase-video" class="space-y-8 animate-fade-in" style="display: none;">
         <div class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-gold">
           <h2 class="text-xl sm:text-2xl font-bold text-center mb-6 text-primary">Assista o vídeo completo</h2>
+
           <div class="w-full">
             <vturb-smartplayer id="vid-69320101c5a3364c781273c2"
               style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
           </div>
+
+          <!-- ✅ UPSELL PAYT (HTML já existe desde o início, só fica escondido) -->
+          <div id="upsellOffer" style="display:none; margin-top: 18px; text-align:center;">
+            <a
+              href="#"
+              payt_action="oneclick_buy"
+              data-object="LYJ5BL-47W9WP"
+              style="background: rgb(40, 167, 69); color: rgb(255, 255, 255); padding: 12px 16px; text-decoration: none; font-size: 24px; font-family: sans-serif; border-radius: 7px; display: inline-block; margin: 10px auto;"
+            >
+              SIM, ACEITO ESSA OFERTA!
+            </a>
+
+            <select payt_element="installment" data-object="LYJ5BL-47W9WP" style="display:none;"></select>
+          </div>
+          <!-- ✅ FIM UPSELL -->
         </div>
 
         <div class="text-center">
@@ -383,8 +366,12 @@
       const check50 = document.getElementById('check-50');
       const check80 = document.getElementById('check-80');
 
+      const upsellOffer = document.getElementById('upsellOffer');
+      const UPSELL_DELAY_MS = (7 * 60 + 50) * 1000; // 07:50
+
       let selectedTime = '';
       let loadingInterval = null;
+      let upsellTimeout = null;
 
       choiceButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -399,7 +386,6 @@
         setTimeout(() => toast.classList.remove('show'), 2500);
       }
 
-      /* ✅ CORRIGIDO: template strings com crase */
       function updateHeader(step, progress) {
         headerStep.textContent = `Passo ${step} de 3`;
         headerProgress.textContent = `${progress}%`;
@@ -450,6 +436,18 @@
         document.body.appendChild(script);
       }
 
+      function scheduleUpsell() {
+        if (!upsellOffer) return;
+
+        upsellOffer.style.display = 'none';
+        if (upsellTimeout) clearTimeout(upsellTimeout);
+
+        upsellTimeout = setTimeout(() => {
+          upsellOffer.style.display = 'block';
+          upsellOffer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, UPSELL_DELAY_MS);
+      }
+
       function showVideoPhase() {
         phaseLoading.style.display = 'none';
         phaseQuiz.style.display = 'none';
@@ -457,6 +455,9 @@
 
         updateHeader(3, 100);
         loadVturbScript();
+
+        // conta 07:50 a partir do momento em que a fase do vídeo aparece
+        scheduleUpsell();
       }
 
       quizForm.addEventListener('submit', (event) => {
@@ -476,5 +477,8 @@
       updateHeader(2, 65);
     })();
   </script>
+
+  <!-- ✅ PAYT: do jeito do manual (preferencialmente antes do </body>) -->
+  <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/4EDDME.js"></script>
 </body>
 </html>
