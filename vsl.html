@@ -6,10 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Vídeo Exclusivo</title>
 
-    <link rel="preload" href="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/69408eb40f0c63977fdbcdb8/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/6926badf88d49382e1315803/main.m3u8" as="fetch">
-    
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -21,7 +19,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      // Configuração das duas contas que estavam no código original
       gtag('config', 'AW-17747766637');
       gtag('config', 'AW-17082465742');
     </script>
@@ -77,17 +74,15 @@
             align-items: center;
         }
 
-        /* CORREÇÃO: Removido background preto e ajustado para não ter margem extra */
+        /* Container do Player - Mantendo a correção das bordas */
         .wrapper-player {
             width: 100%;
-            max-width: 400px; /* Movido do style inline para cá */
-            margin: 25px auto; /* Centraliza horizontalmente */
+            max-width: 400px;
+            margin: 25px auto;
             border-radius: 8px;
             overflow: hidden;
-            /* background: #000;  <- REMOVIDO */
         }
         
-        /* Adicionado para garantir que o player preencha o wrapper */
         .wrapper-player vturb-smartplayer {
             width: 100%;
             height: auto;
@@ -131,7 +126,7 @@
     
     <main class="area-principal">
         <section class="wrapper-player">
-            <vturb-smartplayer id="vid-6926bc5c28a44c0f4a8de80f"></vturb-smartplayer>
+            <vturb-smartplayer id="vid-69408eb40f0c63977fdbcdb8"></vturb-smartplayer>
         </section>
         
         <div class="alerta-som">
@@ -140,7 +135,6 @@
     </main>
     
     <script>
-        // Lógica de UI isolada
         const AppUI = {
             init: function() {
                 this.updateViewers();
@@ -149,7 +143,6 @@
             },
             
             updateViewers: function() {
-                // Intervalo levemente alterado para parecer orgânico
                 const min = 750; 
                 const max = 1150;
                 const val = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -167,14 +160,14 @@
             },
 
             loadPlayer: function() {
+                // Script atualizado com o novo ID
                 const s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js";
+                s.src = "https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/69408eb40f0c63977fdbcdb8/v4/player.js";
                 s.async = true;
                 document.body.appendChild(s);
             }
         };
 
-        // Inicialização segura
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => AppUI.init());
         } else {
