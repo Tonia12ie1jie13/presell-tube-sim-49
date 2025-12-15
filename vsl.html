@@ -77,12 +77,21 @@
             align-items: center;
         }
 
+        /* CORREÇÃO: Removido background preto e ajustado para não ter margem extra */
         .wrapper-player {
             width: 100%;
-            margin: 25px 0;
+            max-width: 400px; /* Movido do style inline para cá */
+            margin: 25px auto; /* Centraliza horizontalmente */
             border-radius: 8px;
             overflow: hidden;
-            background: #000; /* Evita flash branco */
+            /* background: #000;  <- REMOVIDO */
+        }
+        
+        /* Adicionado para garantir que o player preencha o wrapper */
+        .wrapper-player vturb-smartplayer {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .alerta-som {
@@ -122,7 +131,7 @@
     
     <main class="area-principal">
         <section class="wrapper-player">
-            <vturb-smartplayer id="vid-6926bc5c28a44c0f4a8de80f" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+            <vturb-smartplayer id="vid-6926bc5c28a44c0f4a8de80f"></vturb-smartplayer>
         </section>
         
         <div class="alerta-som">
