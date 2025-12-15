@@ -3,198 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assista ao Vídeo</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Vídeo Exclusivo</title>
 
-    <!-- Google Tag Manager -->
+    <link rel="preload" href="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/6926badf88d49382e1315803/main.m3u8" as="fetch">
+    
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KCVNH5KR');</script>
-    <!-- End Google Tag Manager -->
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17747766637"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17747766637');
-</script>
-    
-
-    <!-- Scripts de pré-carregamento do vturb -->
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/6926badf88d49382e1315803/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17082465742"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17747766637"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
+      // Configuração das duas contas que estavam no código original
+      gtag('config', 'AW-17747766637');
       gtag('config', 'AW-17082465742');
     </script>
-    
+
     <style>
-        * {
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #2c3e50;
+            --highlight: #d32f2f;
+        }
+
+        body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
         }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.4;
-        }
-        
-        .header {
-            background-color: #ff0000;
-            color: white;
+
+        .barra-topo {
+            background-color: var(--highlight);
+            color: #ffffff;
             text-align: center;
-            padding: 12px 10px;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 14px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
-        .viewer-count {
-            font-size: 18px;
-            margin-bottom: 6px;
+
+        .status-live {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 500;
         }
-        
-        .presentation-info {
-            font-size: 14px;
-            margin-top: 6px;
+
+        .aviso-data {
+            font-size: 0.9rem;
+            opacity: 0.95;
         }
-        
-        .date-highlight {
-            color: #ffcc00;
-            font-weight: bold;
+
+        .destaque-amarelo {
+            color: #fff176;
+            font-weight: 700;
         }
-        
-        .container {
-            max-width: 800px;
+
+        .area-principal {
+            max-width: 840px;
             margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper-player {
+            width: 100%;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000; /* Evita flash branco */
+        }
+
+        .alerta-som {
+            background-color: #fffde7;
+            border-left: 5px solid #fbc02d;
             padding: 15px;
-        }
-        
-        .video-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .audio-notice {
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin: 15px 0;
+            margin-top: 10px;
             border-radius: 4px;
             text-align: center;
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        
+
         @media (max-width: 600px) {
-            .header {
-                padding: 10px 8px;
-            }
-            
-            .viewer-count {
-                font-size: 16px;
-            }
-            
-            .presentation-info {
-                font-size: 13px;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .header {
-                padding: 8px 6px;
-            }
-            
-            .viewer-count {
-                font-size: 15px;
-            }
-            
-            .presentation-info {
-                font-size: 12px;
-            }
+            .barra-topo { padding: 12px 5px; }
+            .status-live { font-size: 1rem; }
+            .aviso-data { font-size: 0.8rem; }
+            .area-principal { padding: 10px; }
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCVNH5KR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <div class="header">
-        <div class="viewer-count">
-            <span id="viewer-count">XXX</span> Pessoas estão assistindo a esse vídeo
+    <header class="barra-topo">
+        <span class="status-live">
+            <span id="num-espectadores">982</span> pessoas assistindo agora
+        </span>
+        <div class="aviso-data">
+            Apresentação disponível até: 
+            <span id="data-limite" class="destaque-amarelo">...</span>
         </div>
-        <div class="presentation-info">
-            Devido a alta demanda de acessos, garantimos a apresentação somente até: 
-            <span id="current-date" class="date-highlight">xx/xx/xxxx</span>
-        </div>
-    </div>
+    </header>
     
-    <div class="container">
-        <div class="video-container">
+    <main class="area-principal">
+        <section class="wrapper-player">
             <vturb-smartplayer id="vid-6926bc5c28a44c0f4a8de80f" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-        </div>
+        </section>
         
-        <div class="audio-notice">
-            🔊 Por favor, verifique se o som está ligado.
+        <div class="alerta-som">
+            🔊 Verifique se o seu som está ligado.
         </div>
-    </div>
+    </main>
     
     <script>
-        // Gerar número aleatório entre 600 e 1200 para o contador de pessoas
-        function getRandomViewerCount() {
-            return Math.floor(Math.random() * (1200 - 600 + 1)) + 600;
-        }
-        
-        // Formatar data atual no formato dd/mm/aaaa
-        function getCurrentDate() {
-            const today = new Date();
-            const day = String(today.getDate()).padStart(2, '0');
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const year = today.getFullYear();
-            return `${day}/${month}/${year}`;
-        }
-        
-        // Atualizar elementos com os valores gerados
-        document.addEventListener('DOMContentLoaded', function() {
-            const viewerCountElement = document.getElementById('viewer-count');
-            const currentDateElement = document.getElementById('current-date');
+        // Lógica de UI isolada
+        const AppUI = {
+            init: function() {
+                this.updateViewers();
+                this.updateDate();
+                this.loadPlayer();
+            },
             
-            if (viewerCountElement) {
-                viewerCountElement.textContent = getRandomViewerCount();
+            updateViewers: function() {
+                // Intervalo levemente alterado para parecer orgânico
+                const min = 750; 
+                const max = 1150;
+                const val = Math.floor(Math.random() * (max - min + 1)) + min;
+                const el = document.getElementById('num-espectadores');
+                if(el) el.innerText = val;
+            },
+
+            updateDate: function() {
+                const now = new Date();
+                const d = String(now.getDate()).padStart(2, '0');
+                const m = String(now.getMonth() + 1).padStart(2, '0');
+                const y = now.getFullYear();
+                const el = document.getElementById('data-limite');
+                if(el) el.innerText = `${d}/${m}/${y}`;
+            },
+
+            loadPlayer: function() {
+                const s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js";
+                s.async = true;
+                document.body.appendChild(s);
             }
-            
-            if (currentDateElement) {
-                currentDateElement.textContent = getCurrentDate();
-            }
-        });
-        
-        // Carregar script do player do vturb
-        var s = document.createElement("script");
-        s.src = "https://scripts.converteai.net/cd566ce3-465c-43ca-a1b3-906fb328493e/players/6926bc5c28a44c0f4a8de80f/v4/player.js";
-        s.async = true;
-        document.head.appendChild(s);
+        };
+
+        // Inicialização segura
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => AppUI.init());
+        } else {
+            AppUI.init();
+        }
     </script>
 </body>
 </html>
