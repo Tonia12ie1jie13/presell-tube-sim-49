@@ -364,6 +364,98 @@
             }
         }
 
+        /* ===== SEÇÃO FAQ ===== */
+        .faq-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #1a5a7a 0%, #0d4a63 100%);
+            border-radius: 12px;
+        }
+
+        .faq-titulo {
+            text-align: center;
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            border-left: 5px solid #FFD700;
+            overflow: hidden;
+        }
+
+        .faq-pergunta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+
+        .faq-icon {
+            background-color: #FFD700;
+            color: #1a1a1a;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.ativo .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-resposta {
+            padding: 0 20px 18px 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .faq-resposta p {
+            margin-bottom: 10px;
+        }
+
+        .faq-resposta p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== RESPONSIVO FAQ ===== */
+        @media (max-width: 768px) {
+            .faq-titulo {
+                font-size: 24px;
+            }
+            
+            .faq-pergunta {
+                font-size: 14px;
+                padding: 15px;
+            }
+            
+            .faq-resposta {
+                font-size: 13px;
+                padding: 0 15px 15px 15px;
+            }
+        }
+
         /* Comments Section */
         .comments-section {
             margin-top: 48px;
@@ -662,6 +754,97 @@
                             <p>Estamos tão confiantes que o Lord Vigor vai te trazer resultados, que se você não estiver 100% satisfeito e não notar uma grande melhora na sua qualidade de vida, <strong>nós vamos te devolver até o último centavo pago.</strong></p>
                             <p>Basta enviar uma mensagem no WhatsApp em até 60 dias a partir da sua compra que faremos a devolução integral do seu dinheiro, <strong>sem qualquer questionamento!</strong></p>
                             <p>Por isso, faça seu pedido agora. Você não tem absolutamente NADA a perder, e tudo a ganhar.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== SEÇÃO FAQ ===== -->
+                <!-- ID para VTurb: secao-faq | Mesmo tempo que secao-ofertas -->
+                <section id="secao-faq" class="faq-section" style="display: none;">
+                    <h2 class="faq-titulo">DÚVIDAS FREQUENTES</h2>
+                    
+                    <div class="faq-container">
+                        <!-- Pergunta 1 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>O que é o Lord Vigor?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>O Lord Vigor é uma fórmula 100% natural em gotas sublinguais, desenvolvida para acabar com a disfunção erétil de forma permanente.</p>
+                                <p>Além disso, o Lord Vigor não tem contra indicações, sendo utilizado por milhares de homens todos os dias.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 2 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>Quantos frascos devo pedir?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Os melhores resultados surgem quando você usa o Lord Vigor por 6 meses ou mais. Dessa forma, ele tem tempo suficiente para agir em todo o seu corpo.</p>
+                                <p>Por isso, recomendamos fortemente que você aproveite os pacotes de desconto de 5 ou 10 frascos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 3 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>Como devo tomar o Lord Vigor?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Basta pingar a quantidade de gotas indicada embaixo da língua, uma vez ao dia antes de dormir, e você vai adorar os resultados.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 4 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>Em quanto tempo posso ver resultados?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Os resultados variam de acordo com o organismo de cada pessoa.</p>
+                                <p>Mas os clientes do Lord Vigor afirmam terem notado sinais de melhora já nos primeiros dias de uso.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 5 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>O Lord Vigor é vendido em farmácia ou em lojas físicas?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Devido à alta demanda, a venda é exclusivamente feita neste site oficial.</p>
+                                <p>É totalmente proibida a revenda de terceiros em outros sites. Não compre falsificações que possam colocar sua saúde em perigo.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 6 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>E se não funcionar para mim?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Cada frasco do Lord Vigor vem com nossa garantia blindada de 60 dias.</p>
+                                <p>Se, por algum motivo, você não estiver satisfeito com os resultados, basta enviar uma mensagem no WhatsApp, e nós reembolsaremos 100% do seu dinheiro, sem perguntas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 7 -->
+                        <div class="faq-item">
+                            <div class="faq-pergunta">
+                                <span>O que eu faço agora?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-resposta">
+                                <p>Escolha o seu kit acima e clique no botão escrito "COMPRAR AGORA!".</p>
+                                <p>Na próxima página, basta preencher as suas informações e dizer para onde devemos enviar o seu pedido do Lord Vigor.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1080,6 +1263,16 @@
     <!-- TikTok ViewContent Event -->
     <script>
         ttq.track('ViewContent');
+    </script>
+
+    <!-- FAQ Accordion -->
+    <script>
+        document.querySelectorAll('.faq-pergunta').forEach(function(pergunta) {
+            pergunta.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('ativo');
+            });
+        });
     </script>
 </body>
 </html>
