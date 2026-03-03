@@ -7,7 +7,7 @@
     
     <!-- Vturb Performance Optimization -->
     <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a35d0a39c8b3b88468d00c/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a62f546d8aeabb2b25eb88/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
     <link rel="preload" href="https://cdn.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/69a35b58260b750c46a6003a/main.m3u8" as="fetch">
     <link rel="dns-prefetch" href="https://cdn.converteai.net">
@@ -47,589 +47,94 @@
     <!-- End Meta Pixel Code -->
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: #FFFFFF;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #c4170c;
-            border-bottom: none;
-            padding: 16px 0;
-            text-align: center;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .viewer-count {
-            font-size: 15px;
-            color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .viewer-count .number {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .deadline-notice {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .deadline-notice .date {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        /* Main Content Styles */
-        .container {
-            max-width: 800px;
-            margin: 24px auto;
-            padding: 0 20px;
-        }
-
-        .headline-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px auto;
-        }
-
-        .video-section {
-            margin: 24px 0;
-        }
-
-        .video-warning {
-            margin-top: 12px;
-            padding: 12px;
-            background-color: #f0f2f5;
-            border-radius: 8px;
-            font-size: 15px;
-            color: #1a1a1a;
-            text-align: center;
-        }
-
-        .references-section {
-            margin: 32px auto;
-            max-width: 500px;
-        }
-
-        .references-title {
-            background-color: #3b5998;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px 8px 0 0;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .references-image {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            display: block;
-            background-color: #f0f2f5;
-            padding: 20px;
-            border-radius: 0 0 8px 8px;
-        }
-
-        /* ===== SEÇÃO DE OFERTAS ===== */
-        .ofertas-section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .kit-container {
-            background: linear-gradient(180deg, #1a5a7a 0%, #0d3d54 100%);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            width: 260px;
-            color: white;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .kit-destaque {
-            border: 3px solid #FFD700;
-            transform: scale(1.05);
-        }
-
-        .kit-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #c4170c;
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .kit-titulo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #FFD700;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .kit-subtitulo {
-            font-size: 14px;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .kit-imagem {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            margin: 10px auto;
-        }
-
-        .kit-preco {
-            margin: 15px 0;
-        }
-
-        .kit-parcela {
-            font-size: 16px;
-            color: #ffffff;
-            display: block;
-        }
-
-        .kit-valor {
-            font-size: 36px;
-            font-weight: 700;
-            color: #FFD700;
-        }
-
-        .kit-botao {
-            display: block;
-            background-color: #FFD700;
-            color: #000000;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            margin: 10px auto;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .kit-botao:hover {
-            background-color: #ffec4d;
-            transform: scale(1.02);
-        }
-
-        .kit-botao-pix {
-            background-color: #32BCAD;
-            color: #ffffff;
-        }
-
-        .kit-botao-pix:hover {
-            background-color: #28a699;
-        }
-
-        .kit-total {
-            font-size: 14px;
-            color: #ffffff;
-            margin: 5px 0;
-        }
-
-        .kit-frete {
-            font-size: 13px;
-            color: #90EE90;
-            margin: 5px 0;
-        }
-
-        .kit-garantia {
-            font-size: 13px;
-            color: #ffffff;
-            margin: 10px 0;
-            padding: 8px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 5px;
-        }
-
-        .kit-bandeiras {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            margin-top: 10px;
-        }
-
-        /* ===== SEÇÃO GARANTIA BLINDADA ===== */
-        .garantia-section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .garantia-container {
-            background-color: #FFF8DC;
-            border-radius: 12px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .garantia-imagem {
-            flex-shrink: 0;
-        }
-
-        .garantia-imagem img {
-            max-width: 250px;
-            height: auto;
-        }
-
-        .garantia-titulo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a5a7a;
-            margin-bottom: 15px;
-        }
-
-        .garantia-texto p {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .garantia-texto strong {
-            color: #1a5a7a;
-        }
-
-        /* ===== RESPONSIVO OFERTAS ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #FFFFFF; color: #1a1a1a; line-height: 1.5; }
+        header { background-color: #c4170c; border-bottom: none; padding: 16px 0; text-align: center; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .viewer-count { font-size: 15px; color: #ffffff; margin-bottom: 8px; font-weight: 600; }
+        .viewer-count .number { color: #ffffff; font-weight: 700; }
+        .deadline-notice { font-size: 14px; color: rgba(255, 255, 255, 0.95); }
+        .deadline-notice .date { color: #ffffff; font-weight: 700; }
+        .container { max-width: 800px; margin: 24px auto; padding: 0 20px; }
+        .headline-image { width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto 20px auto; }
+        .video-section { margin: 24px 0; }
+        .video-warning { margin-top: 12px; padding: 12px; background-color: #f0f2f5; border-radius: 8px; font-size: 15px; color: #1a1a1a; text-align: center; }
+        .references-section { margin: 32px auto; max-width: 500px; }
+        .references-title { background-color: #3b5998; color: white; padding: 12px 20px; border-radius: 8px 8px 0 0; text-align: center; font-size: 18px; font-weight: 600; }
+        .references-image { width: 100%; max-width: 500px; height: auto; display: block; background-color: #f0f2f5; padding: 20px; border-radius: 0 0 8px 8px; }
+        .ofertas-section { max-width: 1200px; margin: 40px auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .kit-container { background: linear-gradient(180deg, #1a5a7a 0%, #0d3d54 100%); border-radius: 12px; padding: 20px; text-align: center; width: 260px; color: white; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .kit-destaque { border: 3px solid #FFD700; transform: scale(1.05); }
+        .kit-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: #c4170c; color: white; padding: 5px 20px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        .kit-titulo { font-size: 28px; font-weight: 700; color: #FFD700; margin-top: 15px; margin-bottom: 5px; }
+        .kit-subtitulo { font-size: 14px; color: #ffffff; margin-bottom: 15px; }
+        .kit-imagem { width: 100%; max-width: 200px; height: auto; margin: 10px auto; }
+        .kit-preco { margin: 15px 0; }
+        .kit-parcela { font-size: 16px; color: #ffffff; display: block; }
+        .kit-valor { font-size: 36px; font-weight: 700; color: #FFD700; }
+        .kit-botao { display: block; background-color: #FFD700; color: #000000; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; margin: 10px auto; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .kit-botao:hover { background-color: #ffec4d; transform: scale(1.02); }
+        .kit-botao-pix { background-color: #32BCAD; color: #ffffff; }
+        .kit-botao-pix:hover { background-color: #28a699; }
+        .kit-total { font-size: 14px; color: #ffffff; margin: 5px 0; }
+        .kit-frete { font-size: 13px; color: #90EE90; margin: 5px 0; }
+        .kit-garantia { font-size: 13px; color: #ffffff; margin: 10px 0; padding: 8px; background-color: rgba(255,255,255,0.1); border-radius: 5px; }
+        .kit-bandeiras { width: 100%; max-width: 200px; height: auto; margin-top: 10px; }
+        .garantia-section { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .garantia-container { background-color: #FFF8DC; border-radius: 12px; padding: 30px; display: flex; align-items: center; gap: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .garantia-imagem { flex-shrink: 0; }
+        .garantia-imagem img { max-width: 250px; height: auto; }
+        .garantia-titulo { font-size: 24px; font-weight: 700; color: #1a5a7a; margin-bottom: 15px; }
+        .garantia-texto p { font-size: 15px; color: #333; margin-bottom: 12px; line-height: 1.6; }
+        .garantia-texto strong { color: #1a5a7a; }
+        .faq-section { max-width: 900px; margin: 40px auto; padding: 40px 20px; background: linear-gradient(180deg, #1a5a7a 0%, #0d4a63 100%); border-radius: 12px; }
+        .faq-titulo { text-align: center; color: #ffffff; font-size: 32px; font-weight: 700; margin-bottom: 30px; letter-spacing: 2px; }
+        .faq-container { display: flex; flex-direction: column; gap: 15px; }
+        .faq-item { background-color: #ffffff; border-radius: 8px; border-left: 5px solid #FFD700; overflow: hidden; }
+        .faq-pergunta { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; cursor: pointer; font-weight: 600; font-size: 16px; color: #1a1a1a; }
+        .faq-icon { background-color: #FFD700; color: #1a1a1a; width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; transition: transform 0.3s ease; }
+        .faq-item.ativo .faq-icon { transform: rotate(180deg); }
+        .faq-resposta { padding: 0 20px 18px 20px; font-size: 14px; color: #333; line-height: 1.6; }
+        .faq-resposta p { margin-bottom: 10px; }
+        .faq-resposta p:last-child { margin-bottom: 0; }
+        .comments-section { margin-top: 48px; background-color: #f0f2f5; padding: 20px 0; }
+        .comments-container { max-width: 800px; margin: 0 auto; background-color: white; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+        .comments-header { padding: 16px 16px 12px 16px; border-bottom: 1px solid #e4e6eb; }
+        .comments-count { font-size: 17px; font-weight: 600; color: #050505; }
+        .comments-count-detail { font-size: 15px; color: #65676b; font-weight: normal; }
+        .comments-list { padding: 16px; }
+        .comment-item { margin-bottom: 20px; }
+        .comment-main { display: flex; gap: 8px; margin-bottom: 12px; }
+        .comment-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
+        .comment-content { flex: 1; }
+        .comment-bubble { background-color: #f0f2f5; padding: 8px 12px; border-radius: 18px; display: inline-block; max-width: 100%; }
+        .comment-author { font-size: 13px; font-weight: 600; color: #385898; margin-bottom: 2px; cursor: pointer; }
+        .comment-author:hover { text-decoration: underline; }
+        .comment-text { font-size: 15px; line-height: 1.3333; color: #050505; word-wrap: break-word; }
+        .comment-actions { display: flex; align-items: center; gap: 12px; margin-top: 4px; margin-left: 12px; font-size: 12px; color: #65676B; }
+        .comment-actions span { cursor: pointer; font-weight: 600; }
+        .comment-actions span:not(.timestamp):not(.reactions):hover { text-decoration: underline; }
+        .comment-actions .timestamp { font-weight: normal; }
+        .comment-actions .reactions { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; font-weight: normal; }
+        .comment-actions .reactions::before { content: "👍❤️"; font-size: 14px; margin-right: 2px; }
+        .comment-reply { display: flex; gap: 8px; margin-top: 12px; margin-left: 48px; }
+        .view-more { padding: 12px 16px; border-top: none; text-align: left; }
+        .view-more button { background: transparent; border: none; color: #385898; font-weight: 600; cursor: pointer; font-size: 14px; }
+        .view-more button:hover { text-decoration: underline; }
+        footer { background-color: #1a1a1a; color: white; padding: 48px 20px 24px; margin-top: 64px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid #333; text-align: center; font-size: 14px; color: #999; }
         @media (max-width: 768px) {
-            .ofertas-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .kit-container {
-                width: 100%;
-                max-width: 320px;
-            }
-            
-            .kit-destaque {
-                transform: scale(1);
-            }
-            
-            .garantia-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .garantia-imagem img {
-                max-width: 200px;
-            }
-        }
-
-        /* ===== SEÇÃO FAQ ===== */
-        .faq-section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, #1a5a7a 0%, #0d4a63 100%);
-            border-radius: 12px;
-        }
-
-        .faq-titulo {
-            text-align: center;
-            color: #ffffff;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-        }
-
-        .faq-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .faq-item {
-            background-color: #ffffff;
-            border-radius: 8px;
-            border-left: 5px solid #FFD700;
-            overflow: hidden;
-        }
-
-        .faq-pergunta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            color: #1a1a1a;
-        }
-
-        .faq-icon {
-            background-color: #FFD700;
-            color: #1a1a1a;
-            width: 28px;
-            height: 28px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.ativo .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-resposta {
-            padding: 0 20px 18px 20px;
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .faq-resposta p {
-            margin-bottom: 10px;
-        }
-
-        .faq-resposta p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ===== RESPONSIVO FAQ ===== */
-        @media (max-width: 768px) {
-            .faq-titulo {
-                font-size: 24px;
-            }
-            
-            .faq-pergunta {
-                font-size: 14px;
-                padding: 15px;
-            }
-            
-            .faq-resposta {
-                font-size: 13px;
-                padding: 0 15px 15px 15px;
-            }
-        }
-
-        /* Comments Section */
-        .comments-section {
-            margin-top: 48px;
-            background-color: #f0f2f5;
-            padding: 20px 0;
-        }
-
-        .comments-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .comments-header {
-            padding: 16px 16px 12px 16px;
-            border-bottom: 1px solid #e4e6eb;
-        }
-
-        .comments-count {
-            font-size: 17px;
-            font-weight: 600;
-            color: #050505;
-        }
-
-        .comments-count-detail {
-            font-size: 15px;
-            color: #65676b;
-            font-weight: normal;
-        }
-
-        .comments-list {
-            padding: 16px;
-        }
-
-        .comment-item {
-            margin-bottom: 20px;
-        }
-
-        .comment-main {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .comment-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            object-fit: cover;
-        }
-
-        .comment-content {
-            flex: 1;
-        }
-
-        .comment-bubble {
-            background-color: #f0f2f5;
-            padding: 8px 12px;
-            border-radius: 18px;
-            display: inline-block;
-            max-width: 100%;
-        }
-
-        .comment-author {
-            font-size: 13px;
-            font-weight: 600;
-            color: #385898;
-            margin-bottom: 2px;
-            cursor: pointer;
-        }
-
-        .comment-author:hover {
-            text-decoration: underline;
-        }
-
-        .comment-text {
-            font-size: 15px;
-            line-height: 1.3333;
-            color: #050505;
-            word-wrap: break-word;
-        }
-
-        .comment-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 4px;
-            margin-left: 12px;
-            font-size: 12px;
-            color: #65676B;
-        }
-
-        .comment-actions span {
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .comment-actions span:not(.timestamp):not(.reactions):hover {
-            text-decoration: underline;
-        }
-
-        .comment-actions .timestamp {
-            font-weight: normal;
-        }
-
-        .comment-actions .reactions {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: auto;
-            font-weight: normal;
-        }
-
-        .comment-actions .reactions::before {
-            content: "👍❤️";
-            font-size: 14px;
-            margin-right: 2px;
-        }
-
-        .comment-reply {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-            margin-left: 48px;
-        }
-
-        .comment-reply-nested {
-            margin-left: 48px;
-        }
-
-        /* View More Button */
-        .view-more {
-            padding: 12px 16px;
-            border-top: none;
-            text-align: left;
-        }
-
-        .view-more button {
-            background: transparent;
-            border: none;
-            color: #385898;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .view-more button:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 48px 20px 24px;
-            margin-top: 64px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-bottom {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #333;
-            text-align: center;
-            font-size: 14px;
-            color: #999;
-        }
-
-        @media (max-width: 768px) {
-            .viewer-count {
-                font-size: 14px;
-            }
-
-            .deadline-notice {
-                font-size: 13px;
-            }
+            .viewer-count { font-size: 14px; }
+            .deadline-notice { font-size: 13px; }
+            .ofertas-section { flex-direction: column; align-items: center; }
+            .kit-container { width: 100%; max-width: 320px; }
+            .kit-destaque { transform: scale(1); }
+            .garantia-container { flex-direction: column; text-align: center; }
+            .garantia-imagem img { max-width: 200px; }
+            .faq-titulo { font-size: 24px; }
+            .faq-pergunta { font-size: 14px; padding: 15px; }
+            .faq-resposta { font-size: 13px; padding: 0 15px 15px 15px; }
         }
     </style>
 </head>
@@ -651,27 +156,22 @@
                 <img src="headline.png" alt="Headline" class="headline-image">
                 
                 <div class="video-section">
-                    <vturb-smartplayer id="vid-69a35d0a39c8b3b88468d00c" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+                    <vturb-smartplayer id="vid-69a62f546d8aeabb2b25eb88" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
                     <script type="text/javascript">
                         var s=document.createElement("script");
-                        s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a35d0a39c8b3b88468d00c/v4/player.js",
+                        s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a62f546d8aeabb2b25eb88/v4/player.js",
                         s.async=!0,document.head.appendChild(s);
                     </script>
-                    <p class="video-warning">
-                        🔊 Por favor, verifique se o som está ligado.
-                    </p>
+                    <p class="video-warning">🔊 Por favor, verifique se o som está ligado.</p>
                 </div>
 
-                <!-- ===== SEÇÃO DE OFERTAS - CONTROLADA PELO VTURB ===== -->
-                <!-- Configure no painel VTurb: ID "secao-ofertas" | Tempo: 00:42:02 -->
-                <section id="secao-ofertas" class="ofertas-section">
-                    
-                    <!-- Kit 10 Meses -->
+                <!-- SEÇÃO DE OFERTAS -->
+                <section id="secao-ofertas" class="ofertas-section" style="display: none;">
                     <div class="kit-container kit-destaque">
                         <div class="kit-badge">Mais vendido</div>
                         <h3 class="kit-titulo">10 Frascos</h3>
                         <p class="kit-subtitulo">Suficiente para 10 meses</p>
-                        <img src="produto-10-frascos.png" alt="Kit 10 Frascos Lord Vigor" class="kit-imagem">
+                        <img src="produto-10-frascos.png" alt="Kit 10 Frascos" class="kit-imagem">
                         <div class="kit-preco">
                             <span class="kit-parcela">12x de</span>
                             <span class="kit-valor">R$ 58,08</span>
@@ -681,14 +181,13 @@
                         <p class="kit-total">Total: R$ 697,00</p>
                         <p class="kit-frete">Frete Grátis 🚚</p>
                         <p class="kit-garantia">Garantia de 600 dias</p>
-                        <img src="bandeiras-cartao.webp" alt="Bandeiras de Cartão" class="kit-bandeiras">
+                        <img src="bandeiras-cartao.webp" alt="Bandeiras" class="kit-bandeiras">
                     </div>
 
-                    <!-- Kit 5 Meses -->
                     <div class="kit-container">
                         <h3 class="kit-titulo">5 Frascos</h3>
                         <p class="kit-subtitulo">Suficiente para 5 meses</p>
-                        <img src="produto-5-frascos.jpg" alt="Kit 5 Frascos Lord Vigor" class="kit-imagem">
+                        <img src="produto-5-frascos.jpg" alt="Kit 5 Frascos" class="kit-imagem">
                         <div class="kit-preco">
                             <span class="kit-parcela">12x de</span>
                             <span class="kit-valor">R$ 33,08</span>
@@ -698,14 +197,13 @@
                         <p class="kit-total">Total: R$ 397,00</p>
                         <p class="kit-frete">Frete Grátis 🚚</p>
                         <p class="kit-garantia">Garantia de 300 dias</p>
-                        <img src="bandeiras-cartao.webp" alt="Bandeiras de Cartão" class="kit-bandeiras">
+                        <img src="bandeiras-cartao.webp" alt="Bandeiras" class="kit-bandeiras">
                     </div>
 
-                    <!-- Kit 3 Meses -->
                     <div class="kit-container">
                         <h3 class="kit-titulo">3 Frascos</h3>
                         <p class="kit-subtitulo">Suficiente para 3 meses</p>
-                        <img src="produto-3-frascos.jpg" alt="Kit 3 Frascos Lord Vigor" class="kit-imagem">
+                        <img src="produto-3-frascos.jpg" alt="Kit 3 Frascos" class="kit-imagem">
                         <div class="kit-preco">
                             <span class="kit-parcela">12x de</span>
                             <span class="kit-valor">R$ 24,75</span>
@@ -715,14 +213,13 @@
                         <p class="kit-total">Total: R$ 297,00</p>
                         <p class="kit-frete">Frete Grátis 🚚</p>
                         <p class="kit-garantia">Garantia de 180 dias</p>
-                        <img src="bandeiras-cartao.webp" alt="Bandeiras de Cartão" class="kit-bandeiras">
+                        <img src="bandeiras-cartao.webp" alt="Bandeiras" class="kit-bandeiras">
                     </div>
 
-                    <!-- Kit 1 Mês -->
                     <div class="kit-container">
                         <h3 class="kit-titulo">1 Frasco</h3>
                         <p class="kit-subtitulo">Suficiente para 1 mês</p>
-                        <img src="produto-1-frasco.jpg" alt="Kit 1 Frasco Lord Vigor" class="kit-imagem">
+                        <img src="produto-1-frasco.jpg" alt="Kit 1 Frasco" class="kit-imagem">
                         <div class="kit-preco">
                             <span class="kit-parcela">Por apenas</span>
                             <span class="kit-valor">R$ 197,00</span>
@@ -731,14 +228,12 @@
                         <a href="https://checkout.payt.com.br/442262cadfdb6411b9f61466bacdf697?payment=pix" class="kit-botao kit-botao-pix">COMPRAR AGORA VIA PIX</a>
                         <p class="kit-total">+ Frete</p>
                         <p class="kit-garantia">Garantia de 60 dias</p>
-                        <img src="bandeiras-cartao.webp" alt="Bandeiras de Cartão" class="kit-bandeiras">
+                        <img src="bandeiras-cartao.webp" alt="Bandeiras" class="kit-bandeiras">
                     </div>
-
                 </section>
 
-                <!-- ===== SEÇÃO GARANTIA BLINDADA - CONTROLADA PELO VTURB ===== -->
-                <!-- Configure no painel VTurb: ID "garantia-blindada" | Tempo: 00:42:02 -->
-                <section id="garantia-blindada" class="garantia-section">
+                <!-- SEÇÃO GARANTIA -->
+                <section id="garantia-blindada" class="garantia-section" style="display: none;">
                     <div class="garantia-container">
                         <div class="garantia-imagem">
                             <img src="produto-garantia.png" alt="Garantia Lord Vigor">
@@ -746,194 +241,35 @@
                         <div class="garantia-texto">
                             <h2 class="garantia-titulo">GARANTIA BLINDADA LORD VIGOR</h2>
                             <p>Quando você pedir o Lord Vigor, também receberá uma <strong>garantia blindada de 60 dias em cada frasco</strong> para solicitar todo o seu dinheiro de volta.</p>
-                            <p>Estamos tão confiantes que o Lord Vigor vai te trazer resultados, que se você não estiver 100% satisfeito e não notar uma grande melhora na sua qualidade de vida, <strong>nós vamos te devolver até o último centavo pago.</strong></p>
+                            <p>Estamos tão confiantes que o Lord Vigor vai te trazer resultados, que se você não estiver 100% satisfeito, <strong>nós vamos te devolver até o último centavo pago.</strong></p>
                             <p>Basta enviar uma mensagem no WhatsApp em até 60 dias a partir da sua compra que faremos a devolução integral do seu dinheiro, <strong>sem qualquer questionamento!</strong></p>
-                            <p>Por isso, faça seu pedido agora. Você não tem absolutamente NADA a perder, e tudo a ganhar.</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- ===== SEÇÃO FAQ - CONTROLADA PELO VTURB ===== -->
-                <!-- Configure no painel VTurb: ID "secao-faq" | Tempo: 00:42:02 -->
-                <section id="secao-faq" class="faq-section">
+                <!-- SEÇÃO FAQ -->
+                <section id="secao-faq" class="faq-section" style="display: none;">
                     <h2 class="faq-titulo">DÚVIDAS FREQUENTES</h2>
-                    
                     <div class="faq-container">
-                        <!-- Pergunta 1 -->
                         <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Já tentei de tudo e nada funcionou. Por que isso seria diferente?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Tudo o que você tentou até hoje trata o sintoma, não a causa. O Viagra força o sangue a ir para o pênis por algumas horas, mas as placas de gordura continuam lá, entupindo sua veia. Por isso você precisa tomar de novo e de novo.</p>
-                                <p>O Lord Vigor é diferente porque ele limpa as veias, remove as placas, desentope de verdade. Não é tapa-buraco. É a solução definitiva.</p>
-                            </div>
+                            <div class="faq-pergunta"><span>Já tentei de tudo e nada funcionou. Por que isso seria diferente?</span><span class="faq-icon">▼</span></div>
+                            <div class="faq-resposta"><p>O Lord Vigor é diferente porque ele limpa as veias, remove as placas, desentope de verdade. Não é tapa-buraco. É a solução definitiva.</p></div>
                         </div>
-
-                        <!-- Pergunta 2 -->
                         <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Minha mulher já desistiu de mim. Será que ainda dá tempo?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>A mulher nunca desiste do marido. Ela desiste de se frustrar. Toda vez que ela tentou e você falhou, doeu nela também. Ela começou a evitar pra não te machucar e pra não se machucar.</p>
-                                <p>No fundo, ela ainda quer. Ela ainda lembra de como era antes. Ela só precisa de um motivo pra acreditar de novo. Dá tempo sim, mas você precisa agir agora, porque cada dia que passa ela se acostuma mais a viver sem.</p>
-                            </div>
+                            <div class="faq-pergunta"><span>Como vou gerar minha fórmula personalizada?</span><span class="faq-icon">▼</span></div>
+                            <div class="faq-resposta"><p>Após a confirmação do pagamento, você responderá um questionário informando seu peso, idade e altura. Nossa equipe também entra em contato pelo WhatsApp.</p></div>
                         </div>
-
-                        <!-- Pergunta 3 -->
                         <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>E se eu tentar e falhar de novo?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Quando suas veias estão limpas e o sangue flui direito, você não precisa mais pensar em ter ereção. Ela simplesmente acontece.</p>
-                                <p>Vai ser automático, como era quando você tinha vinte anos. E depois da primeira vez que você transar direito, a confiança volta. O Lord Vigor não te dá só ereção, te devolve a paz de ser homem sem medo.</p>
-                            </div>
+                            <div class="faq-pergunta"><span>Tenho diabetes, pressão alta... posso usar?</span><span class="faq-icon">▼</span></div>
+                            <div class="faq-resposta"><p>Sim! A fórmula é calculada especificamente para o seu corpo, considerando qualquer condição que você tenha.</p></div>
                         </div>
-
-                        <!-- Pergunta 4 -->
                         <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Como vou gerar minha fórmula personalizada?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Após a confirmação do pagamento, você será redirecionado para nosso aplicativo, onde responderá um questionário informando seu peso, idade e altura, além de perguntas sobre o resultado que você quer atingir.</p>
-                                <p>Se você for ruim com tecnologia, não tem problema. Nossa equipe entrará em contato pelo WhatsApp e você poderá responder o questionário por lá.</p>
-                            </div>
+                            <div class="faq-pergunta"><span>Em quanto tempo chega?</span><span class="faq-icon">▼</span></div>
+                            <div class="faq-resposta"><p>Nossos prazos de entrega variam de 3 a 6 dias úteis. A embalagem é totalmente discreta.</p></div>
                         </div>
-
-                        <!-- Pergunta 5 -->
                         <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Tenho diabetes, pressão alta, colesterol... posso usar?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Por isso mesmo que o questionário pergunta sobre seu histórico de saúde. A fórmula é calculada especificamente para o seu corpo, considerando qualquer condição que você tenha.</p>
-                                <p>Não é uma dose genérica igual Viagra, que pode te dar um infarto a qualquer momento. É algo feito especialmente para você.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 6 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Não quero aumentar o tamanho do pênis, só quero potência. Tem problema?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Super tranquilo. Basta responder no questionário que você não quer aumento peniano. E pronto, sua fórmula será ajustada para focar apenas na potência e resistência.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 7 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Sou ruim com tecnologia. E se eu não conseguir baixar o aplicativo?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Não tem problema. Assim que você confirmar o pagamento, nossa equipe de especialistas entrará em contato no WhatsApp e lá você poderá responder o questionário por lá. Simples assim.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 8 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>A fórmula demora para ficar pronta?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Não, a fórmula leva menos de um dia para ficar pronta, pois já temos os ingredientes importados e armazenados na nossa fábrica.</p>
-                                <p>Nós só precisamos preparar os ingredientes na dosagem certa para o seu caso e pronto.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 9 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Em quanto tempo chega?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Nossos prazos de entrega variam de 3 a 6 dias úteis, dependendo da sua região. A embalagem é totalmente discreta.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 10 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>E se minha esposa descobrir?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Fique tranquilo, pois a embalagem é totalmente discreta. Caixa simples, sem nada escrito sobre o conteúdo.</p>
-                                <p>Na fatura do cartão, aparece só "COMPRA ONLINE". Ninguém vai saber o que é. Nem o entregador, nem sua mulher, nem ninguém.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 11 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>O Lord Vigor é vendido em farmácia ou em lojas físicas?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Não. O Lord Vigor só está disponível nesta página oficial. Não é vendido em farmácias nem no Mercado Livre.</p>
-                                <p>Como ele é um produto personalizado para cada homem, é impossível existir um produto padrão nas prateleiras. Se encontrar fora deste site, pode ter certeza que é falsificado. Não compre, pois pode colocar sua saúde em risco.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 12 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Ainda não acredito, doutor.</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Você tem todo o direito de desconfiar. A internet tá cheia de picareta vendendo pílula milagrosa que não funciona. Mas me responde uma coisa:</p>
-                                <p>Picareta te dá acompanhamento individual no WhatsApp com equipe real? Picareta mostra endereço físico da fábrica? Picareta te dá 600 dias de garantia com certificado oficial que tem valor legal?</p>
-                                <p>Golpista quer seu dinheiro e some. Eu quero seu resultado.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 13 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Como devo tomar o Lord Vigor?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Basta pingar a quantidade de gotas indicada embaixo da língua, uma vez ao dia antes de dormir, e aguardar os efeitos. Mais fácil, impossível.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 14 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>Quantos frascos devo pedir?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Os melhores resultados surgem quando você usa o Lord Vigor por mais tempo. Dessa forma, ele tem tempo suficiente para limpar suas veias completamente e criar a proteção permanente.</p>
-                                <p>Por isso, recomendamos fortemente que você aproveite os pacotes de desconto de 5 ou 10 frascos.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pergunta 15 -->
-                        <div class="faq-item">
-                            <div class="faq-pergunta">
-                                <span>O que eu faço agora?</span>
-                                <span class="faq-icon">▼</span>
-                            </div>
-                            <div class="faq-resposta">
-                                <p>Escolha o seu kit acima e clique no botão escrito "COMPRAR AGORA!".</p>
-                                <p>Na próxima página, basta preencher as suas informações e dizer para onde devemos enviar o seu pedido do Lord Vigor. Após o pagamento, você receberá o questionário para personalizarmos sua fórmula.</p>
-                            </div>
+                            <div class="faq-pergunta"><span>E se minha esposa descobrir?</span><span class="faq-icon">▼</span></div>
+                            <div class="faq-resposta"><p>A embalagem é totalmente discreta. Na fatura do cartão, aparece só "COMPRA ONLINE".</p></div>
                         </div>
                     </div>
                 </section>
@@ -947,369 +283,59 @@
             <section class="comments-section">
                 <div class="comments-container">
                     <div class="comments-header">
-                        <div class="comments-count">
-                            448 COMENTÁRIOS <span class="comments-count-detail">- EXIBINDO OS 23 MAIS RELEVANTES</span>
-                        </div>
+                        <div class="comments-count">448 COMENTÁRIOS <span class="comments-count-detail">- EXIBINDO OS MAIS RELEVANTES</span></div>
                     </div>
-                    
                     <div class="comments-list">
-                        <!-- Comentário 1 - Eduardo Coelhor -->
                         <div class="comment-item">
                             <div class="comment-main">
-                                <img src="EduardoCoelhor.png" alt="Eduardo Coelhor" class="comment-avatar">
+                                <img src="EduardoCoelhor.png" alt="Eduardo" class="comment-avatar">
                                 <div class="comment-content">
                                     <div class="comment-bubble">
                                         <div class="comment-author">Eduardo Coelhor</div>
-                                        <div class="comment-text">Ainda bem que eu vi o vídeo até o final. Fico feliz demais Muito obrigado Dr. por ter descoberto, fiz o teste e em dois dias já voltei duro, azulzinho nunca mais!.</div>
+                                        <div class="comment-text">Ainda bem que eu vi o vídeo até o final. Fiz o teste e em dois dias já voltei duro, azulzinho nunca mais!</div>
                                     </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">21 min</span>
-                                        <span class="reactions">38</span>
-                                    </div>
-                                    
-                                    <!-- Resposta 1.1 - Roberto Belmonte -->
-                                    <div class="comment-reply">
-                                        <img src="RobertoBelmonte.png" alt="Roberto Belmonte" class="comment-avatar">
-                                        <div class="comment-content">
-                                            <div class="comment-bubble">
-                                                <div class="comment-author">Roberto Belmonte</div>
-                                                <div class="comment-text">O negócio funciona moço</div>
-                                            </div>
-                                            <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">1 min</span>
-                                        <span class="reactions">7</span>
-                                        </div>
-                                        </div>
-                                    </div>
+                                    <div class="comment-actions"><span>Curtir</span><span>Responder</span><span class="timestamp">21 min</span><span class="reactions">38</span></div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Comentário 2 - Pedro Paulo -->
                         <div class="comment-item">
                             <div class="comment-main">
-                                <img src="PedroPaulo.png" alt="Pedro Paulo" class="comment-avatar">
+                                <img src="PedroPaulo.png" alt="Pedro" class="comment-avatar">
                                 <div class="comment-content">
                                     <div class="comment-bubble">
                                         <div class="comment-author">Pedro Paulo</div>
-                                        <div class="comment-text">No início eu duvidava muito, até porque já tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!</div>
+                                        <div class="comment-text">No início eu duvidava muito, mas resolvi dar uma chance e fiquei impressionado!</div>
                                     </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">3h</span>
-                                        <span class="reactions">219</span>
-                                        </div>
+                                    <div class="comment-actions"><span>Curtir</span><span>Responder</span><span class="timestamp">3h</span><span class="reactions">219</span></div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Comentário 3 - Lucas Almeida -->
                         <div class="comment-item">
                             <div class="comment-main">
-                                <img src="LucasAlmeida.png" alt="Lucas Almeida" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Lucas Almeida</div>
-                                        <div class="comment-text">Tava querendo saber se funcionava de verdade e agora vendo todos esses comentários positivos, já sei a resposta. Mto obg gente!!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">51 min</span>
-                                        <span class="reactions">24</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 4 - Marcelo Santos Lima -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="MarceloSantosLima.png" alt="Marcelo Santos Lima" class="comment-avatar">
+                                <img src="MarceloSantosLima.png" alt="Marcelo" class="comment-avatar">
                                 <div class="comment-content">
                                     <div class="comment-bubble">
                                         <div class="comment-author">Marcelo Santos Lima</div>
-                                        <div class="comment-text">Estou surpreso como esse truque funciona mesmo! Duvidava que realmente ia funcionar, estou usando há 30 dias e voltei a fazer 2 vezes por dia, imagina quando fizer 3 meses de uso, minha mulher que me espere</div>
+                                        <div class="comment-text">Estou usando há 30 dias e voltei a fazer 2 vezes por dia, minha mulher que me espere!</div>
                                     </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">49 min</span>
-                                        <span class="reactions">14</span>
-                                        </div>
+                                    <div class="comment-actions"><span>Curtir</span><span>Responder</span><span class="timestamp">49 min</span><span class="reactions">14</span></div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Comentário 5 - Guilherme Motta -->
                         <div class="comment-item">
                             <div class="comment-main">
-                                <img src="GuilhermeMotta.png" alt="Guilherme Motta" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Guilherme Motta</div>
-                                        <div class="comment-text">Eu realmente precisava desse truque para salvar meu casamento, nao sabia mais o que fazer. O video demora um pouco, mas depois que é revelado o truque eu fiquei surpreso pq funciona de verdade!obrigado Doutor!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">45 min</span>
-                                        <span class="reactions">102</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 6 - Rodrigo Menezes -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="RodrigoMenezes.png" alt="Rodrigo Menezes" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Rodrigo Menezes</div>
-                                        <div class="comment-text">Depois que completei 56 anos, comecei a sofrer com a disfunção, o que me fazia sempre ficar meia bomba, sem falar na minha libido que tava lá no chão... Agora, depois de usar sua solução, tudo isso acabou! Eu parei de passar vergonha. Realmente funciona, eu recomendo mto</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">44 min</span>
-                                        <span class="reactions">23</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 7 - Bruno Martins -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="BrunoMartins.png" alt="Bruno Martins" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Bruno Martins</div>
-                                        <div class="comment-text">Você devia mostrar esse truque para todo mundo! Ele funciona mesmo!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">2 min</span>
-                                        <span class="reactions">5</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 8 - Emanuel Silva -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="EmanuelSilva.png" alt="Emanuel Silva" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Emanuel Silva</div>
-                                        <div class="comment-text">Eu sofria com ele ficando apenas meia bomba, não chegava a falhar, mas minha esposa notava que tinha algo errado, ela chegou a brigar comigo achando que eu tava traindo ela Mas era só que o menino não subia mesmo. Mas agora não tem quem me segure, virei adolescente de novo!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">6h</span>
-                                        <span class="reactions">28</span>
-                                        </div>
-                                    
-                                    <!-- Resposta 8.1 - Wagner Moura -->
-                                    <div class="comment-reply">
-                                        <img src="WagnerMoura.png" alt="Wagner Moura" class="comment-avatar">
-                                        <div class="comment-content">
-                                            <div class="comment-bubble">
-                                                <div class="comment-author">Wagner Moura</div>
-                                                <div class="comment-text">Não consigo deixar ele rígido faz mais de 8 anos, sera que funciona?</div>
-                                            </div>
-                                            <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">22 min</span>
-                                        <span class="reactions">16</span>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Resposta 8.2 - Celia Ivano -->
-                                    <div class="comment-reply">
-                                        <img src="CeliaIvano.png" alt="Celia Ivano" class="comment-avatar">
-                                        <div class="comment-content">
-                                            <div class="comment-bubble">
-                                                <div class="comment-author">Celia Ivano</div>
-                                                <div class="comment-text">Wagner o negócio fica igual concreto rsrs Esse metodo foi a única tentativa que deu certo pra mim. Pode testar, vc vai ver como funciona!</div>
-                                            </div>
-                                            <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">19 min</span>
-                                        <span class="reactions">11</span>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 9 - Diego Silva -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="DiegoSilva.png" alt="Diego Silva" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Diego Silva</div>
-                                        <div class="comment-text">Já fazia três anos que eu não conseguia levantar o mastro tentei de tudo gel massagem e nada funcionava. So esse metodo que conseguiu me salva só não use muito senão não tem quem faça descer o meninão!!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">17 min</span>
-                                        <span class="reactions">18</span>
-                                        </div>
-                                    
-                                    <!-- Resposta 9.1 - João paulo -->
-                                    <div class="comment-reply">
-                                        <img src="Joaopaulo.png" alt="João paulo" class="comment-avatar">
-                                        <div class="comment-content">
-                                            <div class="comment-bubble">
-                                                <div class="comment-author">João paulo</div>
-                                                <div class="comment-text">Valeu, vou testar também!</div>
-                                            </div>
-                                            <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">9 min</span>
-                                        <span class="reactions">14</span>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 10 - Otavio Neto -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="OtavioNeto.png" alt="Otavio Neto" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Otavio Neto</div>
-                                        <div class="comment-text">Fazia tempo que estava procurando isso, sorte que achei de novo</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">8 min</span>
-                                        <span class="reactions">5</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 11 - Eduardo Machado -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="EduardoMachado.png" alt="Eduardo Machado" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Eduardo Machado</div>
-                                        <div class="comment-text">Quero agradecer a Rogério, que me mostrou esse método e me deixou duro de um jeito que nunca fiquei na vida, me sinto até um adolescente novamente!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">3 min</span>
-                                        <span class="reactions">1</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 12 - José Carvalho -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="JoseCarvalho.png" alt="José Carvalho" class="comment-avatar">
+                                <img src="JoseCarvalho.png" alt="José" class="comment-avatar">
                                 <div class="comment-content">
                                     <div class="comment-bubble">
                                         <div class="comment-author">José Carvalho</div>
-                                        <div class="comment-text">eu sofria com a mesma coisa que vocês Minha esposa já tava pra me deixar Esse truque do bicarbonato foi minha única tentativa que deu certo, você vai ver como funciona.</div>
+                                        <div class="comment-text">Minha esposa já tava pra me deixar. Esse truque foi minha única tentativa que deu certo!</div>
                                     </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">59 min</span>
-                                        <span class="reactions">152</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 13 - José Antônio -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="JoseAntonio.png" alt="José Antônio" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">José Antônio</div>
-                                        <div class="comment-text">No início eu não acreditei, mas os resultados falam por si. Lutando com a disfunção e noites mal sucedidas, o tratamento foi o único que me deu alívio</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">14 min</span>
-                                        <span class="reactions">2</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 14 - Fernando Luiz Almeida -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="FernandoLuizAlmeida.png" alt="Fernando Luiz Almeida" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Fernando Luiz Almeida</div>
-                                        <div class="comment-text">Pagaria até um milhão por esse tratamento se soubesse que ia me fazer tão bem assim</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">4 min</span>
-                                        <span class="reactions">1</span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comentário 15 - Bento Silva -->
-                        <div class="comment-item">
-                            <div class="comment-main">
-                                <img src="BentoSilva.png" alt="Bento Silva" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-bubble">
-                                        <div class="comment-author">Bento Silva</div>
-                                        <div class="comment-text">Hoje eu finalmente parei de sofrer com aquela meia bomba e agora, eu não acordo mais envergonhado, mas sim com minha mulher querendo fogo!</div>
-                                    </div>
-                                    <div class="comment-actions">
-                                        <span>Curtir</span>
-                                        <span>Responder</span>
-                                        <span class="timestamp">8 min</span>
-                                        <span class="reactions">56</span>
-                                        </div>
+                                    <div class="comment-actions"><span>Curtir</span><span>Responder</span><span class="timestamp">59 min</span><span class="reactions">152</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="view-more">
-                        <button>Ver mais comentários</button>
-                    </div>
+                    <div class="view-more"><button>Ver mais comentários</button></div>
                 </div>
             </section>
         </div>
@@ -1317,54 +343,30 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-bottom">
-                <div>© 2026 Todos os direitos reservados.</div>
-            </div>
+            <div class="footer-bottom"><div>© 2026 Todos os direitos reservados.</div></div>
         </div>
     </footer>
 
-    <!-- JavaScript para contador e data dinâmica -->
     <script>
-        // Randomizar número de visualizadores entre 700 e 920
-        function getRandomViewers() {
-            return Math.floor(Math.random() * (920 - 700 + 1)) + 700;
-        }
-
-        // Obter data de hoje formatada
+        function getRandomViewers() { return Math.floor(Math.random() * (920 - 700 + 1)) + 700; }
         function getTodayDate() {
             const today = new Date();
-            const day = String(today.getDate()).padStart(2, '0');
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const year = today.getFullYear();
-            return `${day}/${month}/${year}`;
+            return String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
         }
-
-        // Atualizar elementos
         document.getElementById('viewerCount').textContent = getRandomViewers();
         document.getElementById('deadline').textContent = getTodayDate();
-
-        // Atualizar contador a cada 5-10 segundos
-        setInterval(function() {
-            document.getElementById('viewerCount').textContent = getRandomViewers();
-        }, Math.random() * 5000 + 5000);
+        setInterval(function() { document.getElementById('viewerCount').textContent = getRandomViewers(); }, Math.random() * 5000 + 5000);
     </script>
 
-    <!-- TikTok ViewContent Event -->
-    <script>
-        ttq.track('ViewContent');
-    </script>
+    <script>ttq.track('ViewContent');</script>
 
-    <!-- FAQ Accordion -->
     <script>
         document.querySelectorAll('.faq-pergunta').forEach(function(pergunta) {
-            pergunta.addEventListener('click', function() {
-                const item = this.parentElement;
-                item.classList.toggle('ativo');
-            });
+            pergunta.addEventListener('click', function() { this.parentElement.classList.toggle('ativo'); });
         });
     </script>
 
-    <!-- SCRIPT DE TRACKING - CAPTURA TODOS OS PARÂMETROS DA URL -->
+    <!-- TRACKING - CAPTURA TODOS OS PARÂMETROS DA URL -->
     <script>
     (function() {
         var urlParams = new URLSearchParams(window.location.search);
@@ -1372,7 +374,6 @@
         
         function appendParamsToLinks() {
             if (!paramsToAppend) return;
-            
             var checkoutLinks = document.querySelectorAll('a[href*="checkout.payt.com.br"]');
             checkoutLinks.forEach(function(link) {
                 var href = link.getAttribute('href');
@@ -1385,18 +386,13 @@
             });
         }
         
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', appendParamsToLinks);
-        } else {
-            appendParamsToLinks();
-        }
+        if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', appendParamsToLinks); }
+        else { appendParamsToLinks(); }
         
         var observer = new MutationObserver(appendParamsToLinks);
         observer.observe(document.body, { attributes: true, childList: true, subtree: true });
-        
         setInterval(appendParamsToLinks, 2000);
     })();
     </script>
-
 </body>
 </html>
